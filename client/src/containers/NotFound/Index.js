@@ -1,3 +1,5 @@
-import NotFOundContainer from "./NotFoundContainer";
+import NotFoundContainer from './NotFoundContainer';
+import NotFound from './NotFound';
 
+export { NotFound };
 export default NotFoundContainer;

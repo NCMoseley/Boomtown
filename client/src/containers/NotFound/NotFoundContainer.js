@@ -1,4 +1,12 @@
-import React, { Component } from React;
-
+import React, { Component } from 'react';
 import NotFound from './NotFound';
-import "./styles" 
+
+class NotFoundContainer extends Component {
+    render() {
+        return (
+            <NotFound />
+        );
+    }
+}
+
+export default NotFoundContainer;
