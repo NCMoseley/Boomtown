@@ -7,6 +7,7 @@ import {
   CardTitle,
   CardText
 } from "material-ui/Card";
+import PropTypes from "prop-types";
 import "./styles.css";
 
 const ItemCard = ({ item }) => (
@@ -33,6 +34,10 @@ const ItemCard = ({ item }) => (
     </Card>
   </div>
 );
+
+ItemCard.propTypes = {
+  item: PropTypes.object.isRequired
+};
 
 export default ItemCard;
 
