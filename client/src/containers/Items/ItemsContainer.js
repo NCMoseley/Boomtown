@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Items from "./Items";
 
+const ITEMS_URL = "http://localhost:4000/items";
+const ITEMS_USERS = "http://localhost:4000/users";
+
 export default class ItemsContainer extends Component {
   constructor() {
     super();
@@ -11,8 +14,8 @@ export default class ItemsContainer extends Component {
 
   componentDidMount() {
     // Fetch JSON and attach state!
-    const items = fetch("http://localhost:4000/items").then(r => r.json());
-    const users = fetch("http://localhost:4000/users").then(r => r.json());
+    const items = fetch(ITEMS_URL).then(r => r.json());
+    const users = fetch(ITEMS_USERS).then(r => r.json());
 
     // Resolve promises into something we can use:
     Promise.all([items, users]).then(response => {
@@ -28,11 +31,11 @@ export default class ItemsContainer extends Component {
         return item;
       });
 
-      const filtered = combined.filter(
-        item => item.itemowner.fullname === "Mackenzie Kieran"
-      );
+      // const filtered = combined.filter(
+      //   item => item.itemowner.fullname === "Mackenzie Kieran"
+      // );
 
-      this.setState({ items: filtered });
+      this.setState({ items: combined });
 
       console.log(combined);
       //the information required lives in the response array*
