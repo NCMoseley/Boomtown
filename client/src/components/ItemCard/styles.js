@@ -1,4 +1,8 @@
-.borrow-button {
+const styles = {
+  cardHeader: {
+    
+  },
+  borrowButton: {
   border: 10px;
   background-color: rgb(38, 50, 56);
   box-sizing: border-box;
@@ -33,3 +37,5 @@
 .borrow-button:hover {
   background-color: rgb(138, 150, 156);
 }
+}
+export default styles;

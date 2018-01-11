@@ -8,7 +8,7 @@ import {
   CardText
 } from "material-ui/Card";
 import PropTypes from "prop-types";
-import "./styles.css";
+// import styles from "./styles";
 
 const ItemCard = ({ item }) => (
   <div>
