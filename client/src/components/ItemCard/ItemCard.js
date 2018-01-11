@@ -8,7 +8,7 @@ import {
   CardText
 } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
-// import "./styles.css";
+import "./styles.css";
 
 export default class ItemCard extends Component {
   render() {
