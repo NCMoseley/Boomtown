@@ -10,12 +10,12 @@ const Items = ({ list }) => (
   <div className={"items-container"}>
     <Masonry
       className={"ul"} // default ''
-      elementType={"ul"} // default 'div'
+      elementType={"div"} // default 'div'
     >
       {list.map(item => (
-        <li className={"cards"} key={item.id}>
+        <div className={"cards"} key={item.id}>
           <ItemCard item={item} key={item.id} />
-        </li>
+        </div>
       ))}
     </Masonry>
   </div>

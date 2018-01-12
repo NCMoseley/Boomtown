@@ -1,10 +1,13 @@
-.items-container {
+/* .items-container {
   width: 100% !important;
 }
 .ul {
   width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .cards {
-  width: 336px !important;
-  padding: 1% !important;
-}
+  width: 30.3% !important;
+  min-width: 300px !important;
+  margin: 1.5% !important;
+} */
