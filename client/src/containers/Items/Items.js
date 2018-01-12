@@ -12,7 +12,6 @@ const Items = ({ list }) => (
   <div className={"items-container"}>
     <Masonry
       options={masonryOptions}
-      className={"masonry"} // default ''
       elementType={"div"} // default 'div'
     >
       {list.map(item => (

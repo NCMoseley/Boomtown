@@ -162,9 +162,7 @@ body {
 .items-container {
   width: 100%;
 }
-.masonry {
-  width: 100%;
-}
+
 .cards {
   width: 30.3%;
   min-width: 300px;
