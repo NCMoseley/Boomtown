@@ -30,12 +30,10 @@ export default class ItemsContainer extends Component {
         item.itemowner = userList.find(user => user.id === item.itemowner);
         return item;
       });
+      // Filter items based on tag
+      const filtered = combined.filter(item => item.tags[0]);
 
-      // const filtered = combined.filter(
-      //   item => item.itemowner.fullname === "Mackenzie Kieran"
-      // );
-
-      this.setState({ items: combined });
+      this.setState({ items: filtered });
 
       console.log(combined);
       //the information required lives in the response array*

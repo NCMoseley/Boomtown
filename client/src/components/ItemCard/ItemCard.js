@@ -8,15 +8,16 @@ import {
   CardText
 } from "material-ui/Card";
 import PropTypes from "prop-types";
-// import styles from "./styles";
+import moment from "moment";
+import Gravatar from "react-gravatar";
 
 const ItemCard = ({ item }) => (
   <div>
     <Card>
       <CardHeader
         title={item.itemowner.fullname}
-        subtitle={item.created.substring(0, 10)}
-        avatar={item.imageurl}
+        subtitle={moment(item.created).fromNow()}
+        avatar={<Gravatar email={item.itemowner.email} />}
       />
       <CardMedia>
         <img src={item.imageurl} alt="image" />
