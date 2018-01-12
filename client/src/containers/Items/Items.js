@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import ItemCard from "../../components/ItemCard";
 import PropTypes from "prop-types";
 import Masonry from "react-masonry-component";
-import "./styles.css";
 
+const masonryOptions = {
+  transitionDuration: 1000
+};
 // Create a variable called list, and turn it into a string.
 // Everything that comes after the arrow is explicitly returned.
 const Items = ({ list }) => (
   <div className={"items-container"}>
     <Masonry
+      options={masonryOptions}
       className={"ul"} // default ''
       elementType={"div"} // default 'div'
     >

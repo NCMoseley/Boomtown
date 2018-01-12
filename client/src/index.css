@@ -160,29 +160,27 @@ body {
   height: 100vh;
 }
 .items-container {
-  width: 100% !important;
+  width: 100%;
 }
 .ul {
-  width: 100% !important;
-  /* margin: 0 auto !important; */
-  padding: 0 !important;
+  width: 100%;
 }
 .cards {
-  width: 30.3% !important;
-  min-width: 300px !important;
-  margin: 1.5% !important;
+  width: 30.3%;
+  min-width: 300px;
+  margin: 1.5%;
 }
 
 @media only screen and (max-width: 990px) {
   .cards {
-    width: 48% !important;
-    min-width: 300px !important;
-    margin: 1% !important;
+    width: 48%;
+    min-width: 300px;
+    margin: 1%;
   }
 }
 @media only screen and (max-width: 625px) {
   .cards {
-    width: 98% !important;
-    margin: 1% !important;
+    width: 98%;
+    margin: 1%;
   }
 }
