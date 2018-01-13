@@ -29,7 +29,7 @@ export default class ToolbarExamplesSimple extends React.Component {
 
   render() {
     return (
-      <Toolbar style={{ backgroundColor: "#fff" }}>
+      <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
         <ToolbarGroup firstChild={true}>
           <ToolbarSeparator />
           <a href="/">
@@ -40,24 +40,15 @@ export default class ToolbarExamplesSimple extends React.Component {
             floatingLabelText="Filter by Tag"
           />
         </ToolbarGroup>
-        <ToolbarGroup>
+        <ToolbarGroup className="buttonbox">
           <FontIcon className="muidocs-icon-custom-sort" />
           <ToolbarSeparator />
           <Link to="/">
-            <RaisedButton
-              className="MyProfile"
-              label="My Profile"
-              primary={true}
-            />
+            <RaisedButton label="Profile" primary={true} />
           </Link>
           <ToolbarSeparator />
           <Link to="/login">
-            <RaisedButton
-              className="Loginout"
-              label="Login"
-              backgroundColor="#808080"
-              labelColor="#fff"
-            />
+            <RaisedButton label="Login" secondary={true} />
           </Link>
         </ToolbarGroup>
       </Toolbar>

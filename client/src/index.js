@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./index.css";
 import muiTheme from "./config/theme";
-
 import Layout from "./components/Layout";
 import Login from "./containers/Login";
 import Items from "./containers/Items";

@@ -7,6 +7,7 @@ import {
   CardTitle,
   CardText
 } from "material-ui/Card";
+import RaisedButton from "material-ui/RaisedButton";
 import PropTypes from "prop-types";
 import moment from "moment";
 import Gravatar from "react-gravatar";
@@ -25,12 +26,10 @@ const ItemCard = ({ item }) => (
       <CardTitle title={item.title} subtitle={item.tags[0]} />
       <CardText>{item.description}</CardText>
       <CardActions>
-        <button className="borrow-button" label="Borrow">
-          Borrow
-        </button>
-        <button className="borrow-button" label="rm -fr *">
-          rm -fr *
-        </button>
+        {/* <RaisedButton className="borrow-button" label="Borrow" secondary={true}> */}
+        <RaisedButton label="Borrow" secondary={true} />
+
+        <RaisedButton label="rm -fr *" disabled={true} />
       </CardActions>
     </Card>
   </div>
