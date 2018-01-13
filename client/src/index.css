@@ -171,7 +171,9 @@ body {
 .react-gravatar {
   border-radius: 50%;
 }
-
+.headerbar {
+  height: auto !important;
+}
 .headerLogo {
   height: 38px;
 }
@@ -193,14 +195,23 @@ body {
     width: 98%;
     margin: 1%;
   }
+  .SelectField {
+    margin-bottom: 30px !important;
+    margin-left: 20px !important;
+    max-width: 200px !important;
+  }
   .headerbar {
     width: 100%;
-    height: 150px !important;
+
     background-color: "#fff";
     display: flex;
     flex-wrap: wrap;
   }
   .buttonbox {
-    justify-self: right;
+    /* margin-top: 8px; */
+    margin-right: -16px;
+    margin-left: auto;
+    margin-bottom: 8px;
+    /* align-items: normal !important; */
   }
 }
