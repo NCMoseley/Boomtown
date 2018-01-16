@@ -29,5 +29,5 @@ From inside the `client` directory, run:
 npm start:
 for the React Compiler
 
-git =>
+git: =>
 ```

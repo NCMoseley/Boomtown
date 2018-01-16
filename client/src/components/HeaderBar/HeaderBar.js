@@ -38,7 +38,15 @@ export default class ToolbarExamplesSimple extends React.Component {
           <SelectField
             className="SelectField"
             floatingLabelText="Filter by Tag"
-          />
+          >
+            <MenuItem value={1} primaryText="Electronics" />
+            <MenuItem value={2} primaryText="Houshold Items" />
+            <MenuItem value={3} primaryText="Musical Instruments" />
+            <MenuItem value={4} primaryText="Physical Media" />
+            <MenuItem value={5} primaryText="Recreational Equipment" />
+            <MenuItem value={5} primaryText="Sporting Goods" />
+            <MenuItem value={5} primaryText="Tools" />
+          </SelectField>
         </ToolbarGroup>
         <ToolbarGroup className="buttonbox">
           <FontIcon className="muidocs-icon-custom-sort" />
