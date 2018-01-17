@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Items from "./Items";
 
-const ITEMS_URL = "http://localhost:4000/items";
-const ITEMS_USERS = "http://localhost:4000/users";
+const ITEMS_URL = "http://localhost:3001/items";
+const ITEMS_USERS = "http://localhost:3001/users";
 
 export default class ItemsContainer extends Component {
   constructor() {
@@ -14,7 +14,10 @@ export default class ItemsContainer extends Component {
 
   componentDidMount() {
     // Fetch JSON and attach state!
-    const items = fetch(ITEMS_URL).then(r => r.json());
+    const items = fetch(ITEMS_URL)
+      .catch(console.log)
+      .then(r => r.json())
+      .catch(console.log);
     const users = fetch(ITEMS_USERS).then(r => r.json());
 
     // Resolve promises into something we can use:

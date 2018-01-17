@@ -19,11 +19,15 @@ npm run dev
 From inside the `server` directory, run:
 
 ```
-json-server --watch db.json -p 4000:
+json-server --watch db.json -p 3001:
  for the json server
 ```
 
 From inside the `client` directory, run:
+
+```
+npm run dev
+```
 
 ```
 npm start:
