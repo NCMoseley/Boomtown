@@ -16,6 +16,7 @@ import {
   ToolbarSeparator,
   ToolbarTitle
 } from "material-ui/Toolbar";
+import Paper from "material-ui/Paper";
 
 export default class ToolbarExamplesSimple extends React.Component {
   constructor(props) {
@@ -29,37 +30,39 @@ export default class ToolbarExamplesSimple extends React.Component {
 
   render() {
     return (
-      <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
-        <ToolbarGroup firstChild={true}>
-          <ToolbarSeparator />
-          <a href="/">
-            <img className="headerLogo" src={logo} />
-          </a>
-          <SelectField
-            className="SelectField"
-            floatingLabelText="Filter by Tag"
-          >
-            <MenuItem value={1} primaryText="Electronics" />
-            <MenuItem value={2} primaryText="Houshold Items" />
-            <MenuItem value={3} primaryText="Musical Instruments" />
-            <MenuItem value={4} primaryText="Physical Media" />
-            <MenuItem value={5} primaryText="Recreational Equipment" />
-            <MenuItem value={5} primaryText="Sporting Goods" />
-            <MenuItem value={5} primaryText="Tools" />
-          </SelectField>
-        </ToolbarGroup>
-        <ToolbarGroup className="buttonbox">
-          <FontIcon className="muidocs-icon-custom-sort" />
-          <ToolbarSeparator />
-          <Link to="/">
-            <RaisedButton label="Profile" primary={true} />
-          </Link>
-          <ToolbarSeparator />
-          <Link to="/login">
-            <RaisedButton label="Login" secondary={true} />
-          </Link>
-        </ToolbarGroup>
-      </Toolbar>
+      <Paper zDepth={3}>
+        <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
+          <ToolbarGroup firstChild={true}>
+            <ToolbarSeparator />
+            <a href="/">
+              <img className="headerLogo" src={logo} />
+            </a>
+            <SelectField
+              className="SelectField"
+              floatingLabelText="Filter by Tag"
+            >
+              <MenuItem value={1} primaryText="Electronics" />
+              <MenuItem value={2} primaryText="Houshold Items" />
+              <MenuItem value={3} primaryText="Musical Instruments" />
+              <MenuItem value={4} primaryText="Physical Media" />
+              <MenuItem value={5} primaryText="Recreational Equipment" />
+              <MenuItem value={5} primaryText="Sporting Goods" />
+              <MenuItem value={5} primaryText="Tools" />
+            </SelectField>
+          </ToolbarGroup>
+          <ToolbarGroup className="buttonbox">
+            <FontIcon className="muidocs-icon-custom-sort" />
+            <ToolbarSeparator />
+            <Link to="/profile">
+              <RaisedButton label="My Profile" primary={true} />
+            </Link>
+            <ToolbarSeparator />
+            <Link to="/login">
+              <RaisedButton label="Logout" secondary={true} />
+            </Link>
+          </ToolbarGroup>
+        </Toolbar>
+      </Paper>
     );
   }
 }
