@@ -21,7 +21,7 @@ ProfileContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  // isLoading: state.profile.isLoading,
+  isLoading: state.profile.isLoading,
   items: state.profile.items,
   error: state.profile.error
 });

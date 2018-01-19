@@ -39,7 +39,9 @@ const ItemCard = ({ item }) => (
       <CardTitle title={item.title} subtitle={item.tags[0]} />
       <CardText>{item.description}</CardText>
       <CardActions>
-        <RaisedButton label="Borrow" secondary={true} />
+        <Link to={"/" + item.itemowner.id}>
+          <RaisedButton label="Borrow" secondary={true} />
+        </Link>
       </CardActions>
     </Card>
   </div>

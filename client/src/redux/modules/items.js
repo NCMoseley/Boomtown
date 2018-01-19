@@ -38,11 +38,11 @@ export const fetchItemsAndUser = () => dispatch => {
         return item;
       });
       // Filter items based on tag
-      // const filtered = combined.filter(item => item.tags[0]);
+      const filtered = combined.filter(item => item.tags[0]);
 
-      // this.setState({ items: filtered });
+      this.setState({ items: filtered });
 
-      console.log(combined);
+      console.log(filtered);
       //the information required lives in the response array*
       // merge the 2 list together, into a single list. use mapfunction*
       // add items from user array into items array*

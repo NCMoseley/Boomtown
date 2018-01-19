@@ -30,14 +30,12 @@ const Profile = ({ items, user }) => (
         <CardHeader
           title={items[0] && items[0].itemowner.fullname}
           subtitle={items[0] && items[0].itemowner.bio}
-          // subtitle={items[0].itemowner.bio}
-          avatar={<Gravatar email={items[0] && items[0].itemowner.email} />}
         />
-        <CardMedia>
-          {/* <img src={items[0] && items[0].imageurl} alt="image" /> */}
-        </CardMedia>
-        {/* <CardText>{items[0] && items[0].imageurl}</CardText> */}
-        <CardActions />
+        <CardHeader
+          avatar={
+            <Gravatar size={300} email={items[0] && items[0].itemowner.email} />
+          }
+        />
       </Paper>
     </div>
 

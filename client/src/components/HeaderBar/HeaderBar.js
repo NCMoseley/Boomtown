@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-
-import IconMenu from "material-ui/IconMenu";
+import { Link } from "react-router-dom";
 import SelectField from "material-ui/SelectField";
 import IconButton from "material-ui/IconButton";
 import FontIcon from "material-ui/FontIcon";
