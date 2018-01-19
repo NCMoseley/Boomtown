@@ -30,8 +30,5 @@ npm run dev
 ```
 
 ```
-npm start:
-for the React Compiler
-
 git: =>
 ```

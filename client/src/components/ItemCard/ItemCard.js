@@ -7,6 +7,13 @@ import {
   CardTitle,
   CardText
 } from "material-ui/Card";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  Redirect
+} from "react-router-dom";
 import RaisedButton from "material-ui/RaisedButton";
 import PropTypes from "prop-types";
 import moment from "moment";
@@ -22,13 +29,13 @@ const ItemCard = ({ item }) => (
       >
         <img src={item.imageurl} alt="image" />
       </CardMedia>
-      <a href={"/" + item.itemowner.id}>
+      <Link to={"/profile/" + item.itemowner.id}>
         <CardHeader
           title={item.itemowner.fullname}
           subtitle={moment(item.created).fromNow()}
           avatar={<Gravatar email={item.itemowner.email} />}
-        />{" "}
-      </a>
+        />
+      </Link>
       <CardTitle title={item.title} subtitle={item.tags[0]} />
       <CardText>{item.description}</CardText>
       <CardActions>

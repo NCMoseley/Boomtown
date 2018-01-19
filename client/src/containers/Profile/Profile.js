@@ -23,14 +23,14 @@ const masonryOptions = {
   transitionDuration: 1000
 };
 
-const Profile = ({ items, item, user }) => (
+const Profile = ({ items, user }) => (
   <div className="profile-container">
     <div className="profile-header">
       <Paper className={"profile-card"} zDepth={3}>
         <CardHeader
           title={items[0] && items[0].itemowner.fullname}
-          subtitle={moment(items.created).fromNow()}
           subtitle={items[0] && items[0].itemowner.bio}
+          // subtitle={items[0].itemowner.bio}
           avatar={<Gravatar email={items[0] && items[0].itemowner.email} />}
         />
         <CardMedia>
