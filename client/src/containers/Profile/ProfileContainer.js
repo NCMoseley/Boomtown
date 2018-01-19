@@ -2,58 +2,30 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Items from "../Items/Items";
 import Profile from "./Profile";
+import { connect } from "react-redux";
+
+import { fetchItemsAndUser } from "../../redux/modules/items";
 
 const ITEMS_URL = "http://localhost:3001/items";
 const ITEMS_USERS = "http://localhost:3001/users";
 
-export default class ProfileContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      items: []
-    };
-  }
+class ProfileContainer extends Component {
+  static propTypes = {};
 
   componentDidMount() {
-    // Fetch JSON and attach state!
-    const items = fetch(ITEMS_URL)
-      .catch(console.log)
-      .then(r => r.json())
-      .catch(console.log);
-    const users = fetch(ITEMS_USERS).then(r => r.json());
-
-    // Resolve promises into something we can use:
-    Promise.all([items, users]).then(response => {
-      // console.log(response);
-
-      const [itemsList, userList] = response;
-
-      //loop over the items
-      // Map: look at all the items in the list and give me what I call
-      const combined = itemsList.map(item => {
-        //for every item add a 'user' property and set it to 'user!'
-        item.itemowner = userList.find(user => user.id === item.itemowner);
-        return item;
-      });
-      // Filter items based on tag
-      const filtered = combined.filter(item => item.tags[0]);
-
-      this.setState({ items: filtered });
-
-      console.log(combined);
-      //the information required lives in the response array*
-      // merge the 2 list together, into a single list. use mapfunction*
-      // add items from user array into items array*
-      //find mandi in the first loop and go through the scond loop and ask
-      //what mandi owns*
-      // attach the new list to this component state*
-      // pass that list into the items component*
-      // the items compoinent should render the new lsit
-      // userlist.map;
-    });
+    this.props.dispatch(fetchItemsAndUser());
   }
 
   render() {
-    return <Profile list={this.state.items} />;
+    if (this.props.isLoading) return <p> Loading </p>;
+    return <Profile items={this.props.items} />;
   }
 }
+
+const mapStateToProps = state => ({
+  isLoading: state.items.isLoading,
+  items: state.items.items,
+  error: state.items.error
+});
+
+export default connect(mapStateToProps)(ProfileContainer);

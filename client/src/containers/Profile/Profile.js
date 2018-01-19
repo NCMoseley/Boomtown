@@ -1,5 +1,5 @@
 import React from "react";
-import Items from "../Items";
+import Items from "../Items/Items";
 import ItemCard from "../../components/ItemCard";
 import PropTypes from "prop-types";
 import ProfileContainer from "./ProfileContainer";
@@ -23,50 +23,34 @@ const masonryOptions = {
   transitionDuration: 1000
 };
 
-const Profile = ({ list }) => (
-  <div
-    className={"items-container"}
-    title={list.map(list => (
-      <div className={"cards"} key={list.itemowner.fullname}>
-        <CardHeader item={list} key={list.id} />
-      </div>
-    ))}
-  >
-    <Paper zDepth={3}>
-      <CardHeader
-        title={list[0] && list[0].itemowner.fullname}
+const Profile = ({ items, item, user }) => (
+  <div className="profile-container">
+    <div className="profile-header">
+      <Paper className={"profile-card"} zDepth={3}>
+        <CardHeader
+          title={items[0] && items[0].itemowner.fullname}
+          subtitle={moment(items.created).fromNow()}
+          subtitle={items[0] && items[0].itemowner.bio}
+          avatar={<Gravatar email={items[0] && items[0].itemowner.email} />}
+        />
+        <CardMedia>
+          {/* <img src={items[0] && items[0].imageurl} alt="image" /> */}
+        </CardMedia>
+        {/* <CardText>{items[0] && items[0].imageurl}</CardText> */}
+        <CardActions />
+      </Paper>
+    </div>
 
-        // subtitle={moment(item.created).fromNow()}
-        // avatar={<Gravatar email={item.itemowner.email} />}
-      />
-      <CardHeader
-      // title={list.itemowner.fullname}
-      // subtitle={moment(list.created).fromNow()}
-      // avatar={<Gravatar email={list.itemowner.email} />}
-      />
-      <CardMedia>{/* <img src={item.imageurl} alt="image" /> */}</CardMedia>
-      {/* <CardTitle title={item.title} subtitle={item.tags[0]} /> */}
-      {/* <CardText>{item.description}</CardText> */}
-      <CardActions>
-        <RaisedButton label="rm -fr *" disabled={true} />
-      </CardActions>
-    </Paper>
-
-    <Masonry
-      options={masonryOptions}
-      elementType={"div"} // default 'div'
-    >
-      {list.map(item => (
-        <div className={"cards"} key={item.id}>
-          <ItemCard item={item} key={item.id} />
-        </div>
-      ))}
-    </Masonry>
-  </div>
+    <div className={"profile-items-container"}>
+      <Masonry options={masonryOptions} elementType={"div"}>
+        <Items items={items} />
+      </Masonry>
+    </div>
+  </div> // className="profile-container"
 );
 
 Profile.propTypes = {
-  list: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired
 };
 
 export default Profile;

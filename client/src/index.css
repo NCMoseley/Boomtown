@@ -185,6 +185,19 @@ body {
 .buttonbox {
   margin-bottom: 8px;
 }
+.profile-container {
+  margin-top: 5%;
+  min-width: 1000px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+.profile-card {
+  width: 600px;
+}
 
 @media only screen and (max-width: 990px) {
   .cards {

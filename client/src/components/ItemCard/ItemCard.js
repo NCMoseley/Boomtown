@@ -11,26 +11,28 @@ import RaisedButton from "material-ui/RaisedButton";
 import PropTypes from "prop-types";
 import moment from "moment";
 import Gravatar from "react-gravatar";
-import Paper from "material-ui/Paper";
 
 const ItemCard = ({ item }) => (
   <div>
     <Card>
-      <CardHeader
-        title={item.itemowner.fullname}
-        subtitle={moment(item.created).fromNow()}
-        avatar={<Gravatar email={item.itemowner.email} />}
-      />
       <CardMedia
-      // overlay={<CardTitle subtitle={``}}
+        overlay={
+          <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
+        }
       >
         <img src={item.imageurl} alt="image" />
       </CardMedia>
+      <a href={"/" + item.itemowner.id}>
+        <CardHeader
+          title={item.itemowner.fullname}
+          subtitle={moment(item.created).fromNow()}
+          avatar={<Gravatar email={item.itemowner.email} />}
+        />{" "}
+      </a>
       <CardTitle title={item.title} subtitle={item.tags[0]} />
       <CardText>{item.description}</CardText>
       <CardActions>
         <RaisedButton label="Borrow" secondary={true} />
-        <RaisedButton label="rm -fr *" disabled={true} />
       </CardActions>
     </Card>
   </div>
