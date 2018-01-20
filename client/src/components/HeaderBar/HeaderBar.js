@@ -58,17 +58,30 @@ class ToolbarExamplesSimple extends React.Component {
                 primaryText="Houshold Items"
               />
               <MenuItem
-                checked={this.props.filterValue === "Houshold Items"}
+                checked={this.props.filterValue === "Musical Instruments"}
                 value={"Musical Instruments"}
                 primaryText="Musical Instruments"
               />
-              <MenuItem value={"Physical Media"} primaryText="Physical Media" />
               <MenuItem
+                checked={this.props.filterValue === "Physical Media"}
+                value={"Physical Media"}
+                primaryText="Physical Media"
+              />
+              <MenuItem
+                checked={this.props.filterValue === "Recreational Equipment"}
                 value={"Recreational Equipment"}
                 primaryText="Recreational Equipment"
               />
-              <MenuItem value={"Sporting Goods"} primaryText="Sporting Goods" />
-              <MenuItem value={"Tools"} primaryText="Tools" />
+              <MenuItem
+                checked={this.props.filterValue === "Sporting Goods"}
+                value={"Sporting Goods"}
+                primaryText="Sporting Goods"
+              />
+              <MenuItem
+                checked={this.props.filterValue === "Tools"}
+                value={"Tools"}
+                primaryText="Tools"
+              />
             </SelectField>
           </ToolbarGroup>
           <ToolbarGroup className="buttonbox">
