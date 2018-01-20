@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import SelectField from "material-ui/SelectField";
 import IconButton from "material-ui/IconButton";
@@ -16,12 +17,14 @@ import {
 } from "material-ui/Toolbar";
 import Paper from "material-ui/Paper";
 
-export default class ToolbarExamplesSimple extends React.Component {
+class ToolbarExamplesSimple extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 3
+      value: [],
+      input2: null
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = (event, index, value) => this.setState({ value });
@@ -38,14 +41,25 @@ export default class ToolbarExamplesSimple extends React.Component {
             <SelectField
               className="SelectField"
               floatingLabelText="Filter by Tag"
+              onChange={this.handleChange}
             >
-              <MenuItem value={1} primaryText="Electronics" />
-              <MenuItem value={2} primaryText="Houshold Items" />
-              <MenuItem value={3} primaryText="Musical Instruments" />
-              <MenuItem value={4} primaryText="Physical Media" />
-              <MenuItem value={5} primaryText="Recreational Equipment" />
-              <MenuItem value={5} primaryText="Sporting Goods" />
-              <MenuItem value={5} primaryText="Tools" />
+              <MenuItem
+                checked={false}
+                value={"Electronics"}
+                primaryText="Electronics"
+              />
+              <MenuItem value={"Houshold Items"} primaryText="Houshold Items" />
+              <MenuItem
+                value={"Musical Instruments"}
+                primaryText="Musical Instruments"
+              />
+              <MenuItem value={"Physical Media"} primaryText="Physical Media" />
+              <MenuItem
+                value={"Recreational Equipment"}
+                primaryText="Recreational Equipment"
+              />
+              <MenuItem value={"Sporting Goods"} primaryText="Sporting Goods" />
+              <MenuItem value={"Tools"} primaryText="Tools" />
             </SelectField>
           </ToolbarGroup>
           <ToolbarGroup className="buttonbox">
@@ -64,6 +78,13 @@ export default class ToolbarExamplesSimple extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  filterValue: state.filterValue
+});
+
+export default connect(mapStateToProps)(ToolbarExamplesSimple);
+
 {
   /* <DropDownMenu value={this.state.value} onChange={this.handleChange}>
             <MenuItem value={1} primaryText="All Broadcasts" />

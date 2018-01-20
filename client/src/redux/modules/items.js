@@ -3,6 +3,7 @@
 const GET_ITEMS_LOADING = "GET_ITEMS_LOADING";
 const GET_ITEMS = "GET_ITEMS";
 const GET_ITEMS_ERROR = "GET_ITEMS_ERROR";
+const GET_ITEMS_FILTERED = "GET_ITEMS_FILTERED";
 
 const ITEMS_URL = "http://localhost:3001/items";
 const ITEMS_USERS = "http://localhost:3001/users";
@@ -12,6 +13,7 @@ const ITEMS_USERS = "http://localhost:3001/users";
 const getItemsLoading = () => ({ type: GET_ITEMS_LOADING });
 const getItems = items => ({ type: GET_ITEMS, payload: items });
 const getItemsError = error => ({ type: GET_ITEMS_ERROR, payload: error });
+const getItemsFiltered = items => ({});
 
 //Async Action Creator
 
@@ -38,11 +40,11 @@ export const fetchItemsAndUser = () => dispatch => {
         return item;
       });
       // Filter items based on tag
-      const filtered = combined.filter(item => item.tags[0]);
+      // const filtered = combined.filter(item => item.tags[0]);
 
-      this.setState({ items: filtered });
+      // this.setState({ items: filtered });
 
-      console.log(filtered);
+      // console.log(filtered);
       //the information required lives in the response array*
       // merge the 2 list together, into a single list. use mapfunction*
       // add items from user array into items array*
@@ -76,6 +78,9 @@ export default (
     }
     case GET_ITEMS_ERROR: {
       return { ...state, isLoading: false, error: action.payload };
+    }
+    case GET_ITEMS_FILTERED: {
+      return { ...state, isLoading: false, items: action.payload, error: "" };
     }
     default:
       return state;
