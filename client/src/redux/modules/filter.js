@@ -4,7 +4,7 @@ const SET_FILTER_VALUE = "SET_FILTER_VALUE";
 
 //Action Creators
 
-const setFilterValue = filterValue => ({
+export const setFilterValue = filterValue => ({
   type: SET_FILTER_VALUE,
   payload: filterValue
 });
@@ -17,6 +17,8 @@ export default (
   },
   action
 ) => {
+  console.log(action);
+  console.log(state);
   switch (action.type) {
     case SET_FILTER_VALUE: {
       return { ...state, filterValue: action.payload };

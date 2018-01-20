@@ -9,6 +9,7 @@ import MenuItem from "material-ui/MenuItem";
 import DropDownMenu from "material-ui/DropDownMenu";
 import RaisedButton from "material-ui/RaisedButton";
 import logo from "../../images/boomtown-logo.svg";
+import { setFilterValue } from "../../redux/modules/filter";
 import {
   Toolbar,
   ToolbarGroup,
@@ -21,15 +22,18 @@ class ToolbarExamplesSimple extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: [],
-      input2: null
+      value: []
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = (event, index, value) => this.setState({ value });
+  handleChange = (event, index, value) => {
+    console.log(value);
+    this.props.dispatch(setFilterValue(value));
+  };
 
   render() {
+    console.log(this.props.filterValue);
     return (
       <Paper zDepth={3}>
         <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
@@ -44,12 +48,17 @@ class ToolbarExamplesSimple extends React.Component {
               onChange={this.handleChange}
             >
               <MenuItem
-                checked={false}
+                checked={this.props.filterValue === "Electronics"}
                 value={"Electronics"}
                 primaryText="Electronics"
               />
-              <MenuItem value={"Houshold Items"} primaryText="Houshold Items" />
               <MenuItem
+                checked={this.props.filterValue === "Houshold Items"}
+                value={"Houshold Items"}
+                primaryText="Houshold Items"
+              />
+              <MenuItem
+                checked={this.props.filterValue === "Houshold Items"}
                 value={"Musical Instruments"}
                 primaryText="Musical Instruments"
               />
@@ -79,9 +88,12 @@ class ToolbarExamplesSimple extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  filterValue: state.filterValue
-});
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    filterValue: state.filter.filterValue
+  };
+};
 
 export default connect(mapStateToProps)(ToolbarExamplesSimple);
 

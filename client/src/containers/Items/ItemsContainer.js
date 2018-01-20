@@ -18,15 +18,27 @@ class ItemsContainer extends Component {
   }
 
   render() {
-    if (this.props.isLoading) return <p> Loading </p>;
-    return <Items items={this.props.items} />;
+    if (this.props.isLoading || this.props.items === undefined)
+      return <p> Loading </p>;
+    return (
+      <Items
+        items={this.props.items.filter(item => {
+          if (this.props.filterValue === " ") {
+            return true;
+          } else {
+            return item.tags.includes(this.props.filterValue);
+          }
+        })}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => ({
   isLoading: state.items.isLoading,
   items: state.items.items,
-  error: state.items.error
+  error: state.items.error,
+  filterValue: state.filter.filterValue
 });
 
 export default connect(mapStateToProps)(ItemsContainer);
