@@ -44,8 +44,11 @@ class ToolbarExamplesSimple extends React.Component {
             </a>
             <SelectField
               className="SelectField"
+              // multiple={true}
+              autoWidth={true}
               floatingLabelText="Filter by Tag"
               onChange={this.handleChange}
+              value={this.props.filterValue}
             >
               <MenuItem
                 checked={this.props.filterValue === "Electronics"}
@@ -109,27 +112,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(ToolbarExamplesSimple);
-
-{
-  /* <DropDownMenu value={this.state.value} onChange={this.handleChange}>
-            <MenuItem value={1} primaryText="All Broadcasts" />
-            <MenuItem value={2} primaryText="All Voice" />
-            <MenuItem value={3} primaryText="All Text" />
-            <MenuItem value={4} primaryText="Complete Voice" />
-            <MenuItem value={5} primaryText="Complete Text" />
-            <MenuItem value={6} primaryText="Active Voice" />
-            <MenuItem value={7} primaryText="Active Text" />
-          </DropDownMenu> */
-}
-{
-  /* <IconMenu
-            iconButtonElement={
-              <IconButton touch={true}>
-                <NavigationExpandMoreIcon />
-              </IconButton>
-            }
-          >
-            <MenuItem primaryText="Download" />
-            <MenuItem primaryText="More Info" />
-          </IconMenu> */
-}

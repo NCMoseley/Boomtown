@@ -44,7 +44,7 @@ export const fetchItemsAndUser = userid => dispatch => {
 export default (
   state = {
     isLoading: false,
-    items: [],
+    items: "",
     error: ""
   },
   action

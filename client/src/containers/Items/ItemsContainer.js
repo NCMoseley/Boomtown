@@ -23,7 +23,7 @@ class ItemsContainer extends Component {
     return (
       <Items
         items={this.props.items.filter(item => {
-          if (this.props.filterValue === " ") {
+          if (this.props.filterValue === "") {
             return true;
           } else {
             return item.tags.includes(this.props.filterValue);

@@ -13,7 +13,7 @@ export const setFilterValue = filterValue => ({
 
 export default (
   state = {
-    filterValue: " "
+    filterValue: ""
   },
   action
 ) => {
