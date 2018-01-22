@@ -1,11 +1,8 @@
 import React from "react";
 import Items from "../Items/Items";
-
 import PropTypes from "prop-types";
-
 import Gravatar from "react-gravatar";
 import Paper from "material-ui/Paper";
-
 import Masonry from "react-masonry-component";
 
 const masonryOptions = {

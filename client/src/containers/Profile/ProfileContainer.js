@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { fetchItemsAndUser } from "../../redux/modules/profile";
+import Gif from "../../images/cloud_load.gif";
 
 class ProfileContainer extends Component {
   static propTypes = {};
@@ -11,7 +12,9 @@ class ProfileContainer extends Component {
     this.props.dispatch(fetchItemsAndUser(this.props.match.params.userid));
   }
   render() {
-    if (this.props.isLoading) return <p> Loading Profile </p>;
+    if (this.props.isLoading)
+      return <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />;
+
     return <Profile items={this.props.items} />;
   }
 }

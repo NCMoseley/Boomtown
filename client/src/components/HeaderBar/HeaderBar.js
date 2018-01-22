@@ -26,7 +26,9 @@ class ToolbarExamplesSimple extends React.Component {
   };
 
   render() {
+    // return window.location.reload(true);
     // console.log(this.props.filterValue);
+
     return (
       <Paper zDepth={3}>
         <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
