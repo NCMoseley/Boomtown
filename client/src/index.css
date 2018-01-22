@@ -150,7 +150,7 @@ body {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 40px;
 }
 
 #root {
@@ -164,6 +164,7 @@ h1 {
   height: 100vh;
 }
 .items-container {
+  margin-top: 3.5%;
   width: 100%;
 }
 

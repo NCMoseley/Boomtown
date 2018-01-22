@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Card,
   CardActions,
@@ -7,13 +7,7 @@ import {
   CardTitle,
   CardText
 } from "material-ui/Card";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import RaisedButton from "material-ui/RaisedButton";
 import PropTypes from "prop-types";
 import moment from "moment";

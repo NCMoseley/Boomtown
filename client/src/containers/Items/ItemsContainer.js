@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Items from "./Items";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 // import Loader from "../../components/Loader";
 import { fetchItemsAndUser } from "../../redux/modules/items";
 
-const ITEMS_URL = "http://localhost:3001/items";
-const ITEMS_USERS = "http://localhost:3001/users";
+// const ITEMS_URL = "http://localhost:3001/items";
+// const ITEMS_USERS = "http://localhost:3001/users";
 
 class ItemsContainer extends Component {
   static propTypes = {};

@@ -31,7 +31,6 @@ export const fetchItemsAndUser = userid => dispatch => {
           item.borrower = usersList.find(user => user.id === item.borrower);
         }
         return item;
-        console.log(item);
       });
 
       dispatch(getProfile(combined));

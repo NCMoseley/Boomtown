@@ -13,7 +13,7 @@ const ITEMS_USERS = "http://localhost:3001/users";
 const getItemsLoading = () => ({ type: GET_ITEMS_LOADING });
 const getItems = items => ({ type: GET_ITEMS, payload: items });
 const getItemsError = error => ({ type: GET_ITEMS_ERROR, payload: error });
-const getItemsFiltered = items => ({});
+// const getItemsFiltered = items => ({});
 
 //Async Action Creator
 

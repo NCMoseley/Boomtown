@@ -1,22 +1,11 @@
 import React from "react";
 import Items from "../Items/Items";
-import ItemCard from "../../components/ItemCard";
+
 import PropTypes from "prop-types";
-import ProfileContainer from "./ProfileContainer";
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardTitle,
-  CardText
-} from "material-ui/Card";
-import RaisedButton from "material-ui/RaisedButton";
-import moment from "moment";
+
 import Gravatar from "react-gravatar";
 import Paper from "material-ui/Paper";
-import ValidatedTextField from "../../components/ValidatedTextField";
-import logo from "../../images/boomtown-logo.svg";
+
 import Masonry from "react-masonry-component";
 
 const masonryOptions = {

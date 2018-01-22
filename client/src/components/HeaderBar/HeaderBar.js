@@ -1,22 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import SelectField from "material-ui/SelectField";
-import IconButton from "material-ui/IconButton";
 import FontIcon from "material-ui/FontIcon";
-import NavigationExpandMoreIcon from "material-ui/svg-icons/navigation/expand-more";
 import MenuItem from "material-ui/MenuItem";
-import DropDownMenu from "material-ui/DropDownMenu";
 import RaisedButton from "material-ui/RaisedButton";
 import logo from "../../images/boomtown-logo.svg";
 import { setFilterValue } from "../../redux/modules/filter";
-import {
-  Toolbar,
-  ToolbarGroup,
-  ToolbarSeparator,
-  ToolbarTitle
-} from "material-ui/Toolbar";
+import { Toolbar, ToolbarGroup, ToolbarSeparator } from "material-ui/Toolbar";
 import Paper from "material-ui/Paper";
 
 class ToolbarExamplesSimple extends React.Component {
@@ -41,7 +33,7 @@ class ToolbarExamplesSimple extends React.Component {
           <ToolbarGroup firstChild={true}>
             <ToolbarSeparator />
             <a href="/">
-              <img className="headerLogo" src={logo} />
+              <img alt="HeaderLogo" className="headerLogo" src={logo} />
             </a>
             <Route
               exact
