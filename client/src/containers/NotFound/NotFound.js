@@ -1,4 +1,12 @@
-import React, { Component } from React;
+import React, { Component } from "react";
 
-import React from 'react';
-import './styles.css';
+export default class NotFound extends Component {
+  render() {
+    return (
+      <img
+        style={{ width: "100%" }}
+        src={"https://gifimage.net/wp-content/uploads/2017/09/404-gif-8.gif"}
+      />
+    );
+  }
+}

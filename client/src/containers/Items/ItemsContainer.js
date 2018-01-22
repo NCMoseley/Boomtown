@@ -24,6 +24,7 @@ class ItemsContainer extends Component {
       <Items
         items={this.props.items.filter(item => {
           if (this.props.filterValue === "") {
+            // Note: Set to array instead of string
             return true;
           } else {
             return item.tags.includes(this.props.filterValue);

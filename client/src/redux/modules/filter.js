@@ -13,12 +13,12 @@ export const setFilterValue = filterValue => ({
 
 export default (
   state = {
-    filterValue: ""
+    filterValue: "" // Note: Should be empty array instead of an empty string?
   },
   action
 ) => {
-  console.log(action);
-  console.log(state);
+  // console.log(action);
+  // console.log(state);
   switch (action.type) {
     case SET_FILTER_VALUE: {
       return { ...state, filterValue: action.payload };

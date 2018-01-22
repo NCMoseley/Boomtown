@@ -22,13 +22,17 @@ import Gravatar from "react-gravatar";
 const ItemCard = ({ item }) => (
   <div>
     <Card>
-      <CardMedia
-        overlay={
-          <CardTitle title="Overlay title" subtitle="Overlay subtitle" />
-        }
-      >
-        <img src={item.imageurl} alt="image" />
-      </CardMedia>
+      {item.borrower ? (
+        <CardMedia
+          overlay={<CardTitle subtitle={`Lent to ${item.borrower.fullname}`} />}
+        >
+          <img src={item.imageurl} alt={item.title} />
+        </CardMedia>
+      ) : (
+        <CardMedia>
+          <img src={item.imageurl} alt={item.title} />
+        </CardMedia>
+      )};
       <Link to={"/profile/" + item.itemowner.id}>
         <CardHeader
           title={item.itemowner.fullname}
@@ -40,7 +44,7 @@ const ItemCard = ({ item }) => (
       <CardText>{item.description}</CardText>
       <CardActions>
         <Link to={"/" + item.itemowner.id}>
-          <RaisedButton label="Borrow" secondary={true} />
+          {item.borrower && <RaisedButton label="Borrow" secondary={true} />}
         </Link>
       </CardActions>
     </Card>
