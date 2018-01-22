@@ -1,5 +1,7 @@
 # Boomtown Starter
 
+![](http://www.sickchirpse.com/wp-content/uploads/2013/09/Boomtown-Featured-.jpg)
+
 ## Installation
 
 Download the repo, then run:
