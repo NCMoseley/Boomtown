@@ -24,10 +24,10 @@ const Boomtown = () => (
           <Layout>
             <Switch>
               <Route exact path="/" component={Items} />
-              {
-                <Route exact path="/profile/:userid" component={Profile} />
-                // <Route exact path="/share" component=() />
-              }
+
+              <Route exact path="/profile/:userid" component={Profile} />
+              {/* <Route exact path="/share" component=() /> */}
+
               <Route exact path="*" component={NotFound} />
             </Switch>
           </Layout>

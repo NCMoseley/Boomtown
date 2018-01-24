@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Items from "./Items";
 import { connect } from "react-redux";
-import { fetchItemsAndUser } from "../../redux/modules/items";
+import items, { fetchItemsAndUser } from "../../redux/modules/items";
 import Gif from "../../images/cloud_load.gif";
 
 class ItemsContainer extends Component {
@@ -14,16 +14,23 @@ class ItemsContainer extends Component {
   }
 
   render() {
+    console.log(this.props.items.tags);
+    console.log(this.props.filters.map(filter => filter.title));
+
+    // reduce list of title to selected ones. then compare that to use .includes();
+
     if (this.props.isLoading || this.props.items === undefined)
       return <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />;
     return (
       <Items
         items={this.props.items.filter(item => {
-          if (this.props.filterValue === "") {
-            // Note: Set to array instead of string?
-            return true;
+          if (
+            this.props.selectedFilters.find(f => f === this.props.items.tags) >
+            0
+          ) {
+            return this.props.items.tags === "Electronics";
           } else {
-            return item.tags.includes(this.props.filterValue);
+            return this.props.items;
           }
         })}
       />
@@ -35,7 +42,8 @@ const mapStateToProps = state => ({
   isLoading: state.items.isLoading,
   items: state.items.items,
   error: state.items.error,
-  filterValue: state.filter.filterValue
+  filters: state.filter.filters,
+  selectedFilters: state.filter.selectedFilters
 });
 
 export default connect(mapStateToProps)(ItemsContainer);

@@ -17,18 +17,16 @@ class ToolbarExamplesSimple extends React.Component {
     this.state = {
       value: []
     };
-    // this.handleChange = this.handleChange.bind(this); // Note: Binding might not be necessary.
   }
 
-  handleChange = (event, index, value) => {
-    // console.log(value);
-    this.props.dispatch(setFilterValue(value));
+  handleChange = (event, index, selected) => {
+    this.props.dispatch(setFilterValue(selected));
   };
 
   render() {
     // return window.location.reload(true);
-    // console.log(this.props.filterValue);
-
+    // console.log(this.props.filters.map(filter => filter.title));
+    // console.log(this.props);
     return (
       <Paper zDepth={3}>
         <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
@@ -43,27 +41,26 @@ class ToolbarExamplesSimple extends React.Component {
               render={() => (
                 <SelectField
                   className="SelectField"
-                  // multiple
+                  multiple
                   autoWidth={true}
                   floatingLabelText="Filter by Tag"
                   onChange={this.handleChange}
-                  value={this.props.filterValue}
-                  // value={this.props.tag}
+                  // value={this.props.filterValue}
+                  value={this.props.selectedFilters}
                 >
-                  <MenuItem
-                    // insetChildren
-                    // checked={values && values.indexOf("Electronics") > -1}
-                    checked={this.props.filterValue === "Electronics"}
-                    value={"Electronics"}
-                    primaryText="Electronics"
-                  />
-                  <MenuItem
-                    // insetChildren
-                    checked={this.props.filterValue === "Household Items"}
-                    value={"Household Items"}
-                    primaryText="Household Items"
-                  />
-                  <MenuItem
+                  {this.props.filters.map(tag => (
+                    <MenuItem
+                      insetChildren
+                      key={tag.tagid}
+                      checked={
+                        !!this.props.selectedFilters.find(f => f === tag.tagid)
+                      }
+                      value={tag.title}
+                      primaryText={tag.title}
+                    />
+                  ))}
+
+                  {/* <MenuItem
                     // insetChildren
                     checked={this.props.filterValue === "Musical Instruments"}
                     value={"Musical Instruments"}
@@ -94,7 +91,7 @@ class ToolbarExamplesSimple extends React.Component {
                     checked={this.props.filterValue === "Tools"}
                     value={"Tools"}
                     primaryText="Tools"
-                  />
+                  /> */}
                 </SelectField>
               )}
             />
@@ -117,9 +114,9 @@ class ToolbarExamplesSimple extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    filterValue: state.filter.filterValue
+    filters: state.filter.filters,
+    selectedFilters: state.filter.selectedFilters
   };
 };
 
