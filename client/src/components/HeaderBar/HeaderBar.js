@@ -49,7 +49,7 @@ class ToolbarExamplesSimple extends React.Component {
                   {this.props.filters.map(tag => (
                     <MenuItem
                       insetChildren
-                      key={tag.tagid}
+                      key={tag.title}
                       checked={
                         !!this.props.selectedFilters.find(f => f === tag.title)
                       }

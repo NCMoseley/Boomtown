@@ -24,7 +24,7 @@ const resolveFunctions = {
     },
     borrower(item) {
       if (item.borrower) {
-        return fetch(`${USERS_URL}/${item.item.borrower}`).then(r => r.json());
+        return fetch(`${USERS_URL}/${item.borrower}`).then(r => r.json());
       } else {
         return null;
       }

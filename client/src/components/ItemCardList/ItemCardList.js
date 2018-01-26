@@ -14,8 +14,8 @@ const Items = ({ items }) => (
       elementType={"div"} // default 'div'
     >
       {items.map(item => (
-        <div className={"cards"} key={item.id}>
-          <ItemCard item={item} key={item.id} />
+        <div className={"cards"} key={item.created}>
+          <ItemCard item={item} key={item.created} />
         </div>
       ))}
     </Masonry>
