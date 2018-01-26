@@ -21,8 +21,13 @@ npm run dev
 From inside the `server` directory, run:
 
 ```
-json-server --watch db.json -p 3001:
- for the json server
+json-server --watch ./api/db.json -p 3001
+```
+
+For gql
+
+```
+npm start
 ```
 
 From inside the `client` directory, run:

@@ -24,7 +24,6 @@ class ToolbarExamplesSimple extends React.Component {
   };
 
   render() {
-    // return window.location.reload(true);
     // console.log(this.props.filters.map(filter => filter.title));
     // console.log(this.props);
     return (
@@ -45,7 +44,6 @@ class ToolbarExamplesSimple extends React.Component {
                   autoWidth={true}
                   floatingLabelText="Filter by Tag"
                   onChange={this.handleChange}
-                  // value={this.props.filterValue}
                   value={this.props.selectedFilters}
                 >
                   {this.props.filters.map(tag => (
@@ -53,45 +51,12 @@ class ToolbarExamplesSimple extends React.Component {
                       insetChildren
                       key={tag.tagid}
                       checked={
-                        !!this.props.selectedFilters.find(f => f === tag.tagid)
+                        !!this.props.selectedFilters.find(f => f === tag.title)
                       }
                       value={tag.title}
                       primaryText={tag.title}
                     />
                   ))}
-
-                  {/* <MenuItem
-                    // insetChildren
-                    checked={this.props.filterValue === "Musical Instruments"}
-                    value={"Musical Instruments"}
-                    primaryText="Musical Instruments"
-                  />
-                  <MenuItem
-                    // insetChildren
-                    checked={this.props.filterValue === "Physical Media"}
-                    value={"Physical Media"}
-                    primaryText="Physical Media"
-                  />
-                  <MenuItem
-                    // insetChildren
-                    checked={
-                      this.props.filterValue === "Recreational Equipment"
-                    }
-                    value={"Recreational Equipment"}
-                    primaryText="Recreational Equipment"
-                  />
-                  <MenuItem
-                    // insetChildren
-                    checked={this.props.filterValue === "Sporting Goods"}
-                    value={"Sporting Goods"}
-                    primaryText="Sporting Goods"
-                  />
-                  <MenuItem
-                    // insetChildren
-                    checked={this.props.filterValue === "Tools"}
-                    value={"Tools"}
-                    primaryText="Tools"
-                  /> */}
                 </SelectField>
               )}
             />

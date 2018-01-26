@@ -14,26 +14,23 @@ class ItemsContainer extends Component {
   }
 
   render() {
-    console.log(this.props.items.tags);
-    console.log(this.props.filters.map(filter => filter.title));
+    // console.log(this.props.selectedFilters);
+    // console.log(this.props.filters.map(tag => tag.title));
 
     // reduce list of title to selected ones. then compare that to use .includes();
 
     if (this.props.isLoading || this.props.items === undefined)
       return <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />;
-    return (
+    return this.props.selectedFilters.length ? (
       <Items
         items={this.props.items.filter(item => {
-          if (
-            this.props.selectedFilters.find(f => f === this.props.items.tags) >
-            0
-          ) {
-            return this.props.items.tags === "Electronics";
-          } else {
-            return this.props.items;
-          }
+          return this.props.selectedFilters.some(f => {
+            return item.tags.map(t => t.title).includes(f);
+          });
         })}
       />
+    ) : (
+      <Items items={this.props.items} />
     );
   }
 }

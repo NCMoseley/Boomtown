@@ -6,7 +6,7 @@ const GET_ITEMS_ERROR = "GET_ITEMS_ERROR";
 const GET_ITEMS_FILTERED = "GET_ITEMS_FILTERED";
 
 const ITEMS_URL = "http://localhost:3001/items";
-const ITEMS_USERS = "http://localhost:3001/users";
+const USERS_URL = "http://localhost:3001/users";
 
 //Action Creators
 
@@ -24,7 +24,7 @@ export const fetchItemsAndUser = () => dispatch => {
     .catch(console.log)
     .then(r => r.json())
     .catch(console.log);
-  const users = fetch(ITEMS_USERS).then(r => r.json());
+  const users = fetch(USERS_URL).then(r => r.json());
 
   return Promise.all([items, users])
     .then(response => {

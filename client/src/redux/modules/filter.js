@@ -14,13 +14,12 @@ export const setFilterValue = filterValue => ({
 export default (
   state = {
     filters: [
-      { tagid: 1, title: "Electronics" },
+      { tagid: 1, title: "Tools" },
       { tagid: 2, title: "Household Items" },
       { tagid: 3, title: "Musical Instruments" },
       { tagid: 4, title: "Physical Media" },
       { tagid: 5, title: "Recreational Equipment" },
-      { tagid: 6, title: "Sporting Goods" },
-      { tagid: 7, title: "Tools" }
+      { tagid: 6, title: "Sporting Goods" }
     ],
     selectedFilters: []
   },
