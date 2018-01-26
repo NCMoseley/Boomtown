@@ -18,24 +18,24 @@ npm run dev
 
 ## For Dev
 
+From inside the `client` directory:
+
+```
+{ npm run dev } Will start all servers
+```
+
+```
+git: =>
+```
+
 From inside the `server` directory, run:
 
 ```
 json-server --watch ./api/db.json -p 3001
 ```
 
-For gql
+For gql, from `server` directory:
 
 ```
 npm start
-```
-
-From inside the `client` directory, run:
-
-```
-npm run dev
-```
-
-```
-git: =>
 ```
