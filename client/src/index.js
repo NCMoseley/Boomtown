@@ -14,25 +14,29 @@ import Login from "./containers/Login";
 import Items from "./containers/Items";
 import Profile from "./containers/Profile";
 import NotFound from "./containers/NotFound";
+import { ApolloProvider } from "react-apollo";
+import client from "./config/apolloclient";
 
 const Boomtown = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <Provider store={store}>
-      <Router>
-        <div>
-          <Route exact path="/login" component={Login} />
-          <Layout>
-            <Switch>
-              <Route exact path="/" component={Items} />
+      <ApolloProvider client={client}>
+        <Router>
+          <div>
+            <Route exact path="/login" component={Login} />
+            <Layout>
+              <Switch>
+                <Route exact path="/" component={Items} />
 
-              <Route exact path="/profile/:userid" component={Profile} />
-              {/* <Route exact path="/share" component=() /> */}
+                <Route exact path="/profile/:userid" component={Profile} />
+                {/* <Route exact path="/share" component=() /> */}
 
-              <Route exact path="*" component={NotFound} />
-            </Switch>
-          </Layout>
-        </div>
-      </Router>
+                <Route exact path="*" component={NotFound} />
+              </Switch>
+            </Layout>
+          </div>
+        </Router>
+      </ApolloProvider>
     </Provider>
   </MuiThemeProvider>
 );

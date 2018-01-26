@@ -21,7 +21,7 @@ npm run dev
 From inside the `client` directory:
 
 ```
-{ npm run dev } Will start all servers
+{ npm run dev } Will start all servers and run on localhost:3000
 ```
 
 ```
@@ -31,11 +31,11 @@ git: =>
 From inside the `server` directory, run:
 
 ```
-json-server --watch ./api/db.json -p 3001
+{ json-server --watch ./api/db.json -p 3001 } for json server
 ```
 
 For gql, from `server` directory:
 
 ```
-npm start
+{ npm start } for graphql server
 ```
