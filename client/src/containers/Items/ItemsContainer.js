@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Items from "./Items";
 import { connect } from "react-redux";
-import items, { fetchItemsAndUser } from "../../redux/modules/items";
+import { fetchItemsAndUser } from "../../redux/modules/items";
 import Gif from "../../images/cloud_load.gif";
 
 class ItemsContainer extends Component {
