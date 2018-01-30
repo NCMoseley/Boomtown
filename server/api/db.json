@@ -43,7 +43,7 @@
       "id": 3,
       "title": "Flute",
       "description":
-        "Like-new flute to lend. C'mon, you know you want to play it...",
+        "Like-new flute to lend. Cmon, you know you want to play it...",
       "imageurl":
         "https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fflute.jpg?alt=media",
       "tags": [
@@ -61,7 +61,7 @@
       "id": 4,
       "title": "Hatchet",
       "description":
-        "Chop things down, show nature who's boss. But be safe—alcoholic beverage not included.",
+        "Chop things down, show nature who is boss. But be safe—alcoholic beverage not included.",
       "imageurl":
         "https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fhatchet.jpg?alt=media",
       "tags": [
@@ -79,7 +79,7 @@
       "id": 5,
       "title": "Mix Tape",
       "description":
-        "What's on it? Who knows! Borrow it and find out. Tape deck not included.",
+        "What is on it? Who knows! Borrow it and find out. Tape deck not included.",
       "imageurl":
         "https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fmix-tape.jpg?alt=media",
       "tags": [
