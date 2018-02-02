@@ -5,12 +5,6 @@ const GET_ITEMS = "GET_ITEMS";
 const GET_ITEMS_ERROR = "GET_ITEMS_ERROR";
 const GET_ITEMS_FILTERED = "GET_ITEMS_FILTERED";
 
-//Action Creators
-
-// const getItemsLoading = () => ({ type: GET_ITEMS_LOADING });
-// const getItems = items => ({ type: GET_ITEMS, payload: items });
-// const getItemsError = error => ({ type: GET_ITEMS_ERROR, payload: error });
-
 //Reducer
 
 export default (

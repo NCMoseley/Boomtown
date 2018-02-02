@@ -10,22 +10,19 @@ const bodyParser = require("body-parser");
 const typeDefs = require("./api/schema");
 const cors = require("cors");
 
-// const createLoaders = require("./api/loaders");
-
 const initResolvers = require("./api/resolvers");
 
-const jsonResource = require("./api/resources/jsonResource")(app);
 const postgresResource = require("./api/resources/postgresResurce");
-// const firebaseResource = require("./api/resources/firebaseResource")(app);
+const firebaseResource = require("./api/resources/firebaseResource")(app);
 
 postgresResource(app).then(pgResource => start(pgResource));
 
-function start() {
+function start(postgresResource) {
   const schema = makeExecutableSchema({
     typeDefs,
     resolvers: initResolvers({
-      jsonResource,
-      postgresResource
+      postgresResource,
+      firebaseResource
     })
   });
 
@@ -33,14 +30,7 @@ function start() {
 
   // Where we will send all of our GraphQL requests
   app.use("/graphql", bodyParser.json(), graphqlExpress({ schema }));
-  // app.use(
-  //   "/graphql",
-  //   bodyParser.json(),
-  //   graphqlExpress({
-  //     schema,
-  //     context: { loaders: createLoaders() }
-  //   })
-  // );
+
   // A route for accessing the GraphiQL tool
   app.use(
     "/graphiql",

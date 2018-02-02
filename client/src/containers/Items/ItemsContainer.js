@@ -10,8 +10,12 @@ class ItemsContainer extends Component {
     items: PropTypes.array
   };
   render() {
-    const { loading, items } = this.props.data;
-    return loading ? <p>Loading....</p> : <Items items={items} />;
+    const { loading, items, error } = this.props.data;
+    if (loading) return <p>Loading....</p>;
+    else if (error) {
+      console.log(error);
+      return <p>error</p>;
+    } else return <Items items={items} />;
   }
 }
 
@@ -35,8 +39,37 @@ const fetchItems = gql`
         id
         email
         fullname
+        bio
       }
     }
   }
 `;
+
+// Colins VV NOTE
+// const fetchItems = gql`
+//   query {
+//     items {
+//       id
+//       title
+//       itemowner {
+//         id
+//         email
+//         fullname
+//       }
+//       borrower {
+//         id
+//         fullname
+//       }
+//       created
+//       imageurl
+//       description
+//       available
+//       tags {
+//         id
+//         title
+//       }
+//     }
+//   }
+// `;
+
 export default graphql(fetchItems)(ItemsContainer);

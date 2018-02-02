@@ -6,9 +6,14 @@ module.exports = app => {
   app.set("PGPORT", process.env.PGHOST || "5432");
   //Express Config
   app.set("PORT", process.env.PORT || "3000");
-  //Temporary JSON
+  //FIREBASE CONFIG
   app.set("JSON_PORT", "3001");
+  app.set("FIREBASE_CONFIG", {
+    apiKey: "AIzaSyClOuAcOTLu5WImEqEMK-L-b3_mKKOwnWA",
+    authDomain: "boomtown-8cc79.firebaseapp.com",
+    databaseURL: "https://boomtown-8cc79.firebaseio.com",
+    projectId: "boomtown-8cc79",
+    storageBucket: "boomtown-8cc79.appspot.com",
+    messagingSenderId: "478312715806"
+  });
 };
-
-// export const GQL_PORT = process.env.PORT; // Where does this come from?
-// export const POSTGRES_PORT = process.env.PG_PORT;

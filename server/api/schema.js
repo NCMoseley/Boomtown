@@ -7,10 +7,12 @@ module.exports = `
 
   type User {
     id: ID
+    bio: String
     email: String
     fullname: String
     shareditems: [Item]
-    imageurl: String
+    borroweditems: [Item]
+    
   }
 
   type Item {
@@ -66,8 +68,3 @@ module.exports = `
   },
   
 `;
-
-// module.exports = makeExecutableSchema({
-//   typeDefs,
-//   resolvers
-// });

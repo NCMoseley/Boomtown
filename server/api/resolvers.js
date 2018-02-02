@@ -1,7 +1,14 @@
 const fetch = require("node-fetch");
 
 module.exports = ({
-  jsonResource: { getItems, getItem, getUser, getUsers, getSharedItems }
+  postgresResource: {
+    getItem,
+    getItems,
+    getTags,
+    getSharedItems,
+    getBorrowedItems
+  },
+  firebaseResource: { getUser, getUsers }
 }) => {
   return {
     Query: {
@@ -37,31 +44,23 @@ module.exports = ({
       },
       async tags(item) {
         // const i = await fetch(`${ITEMS_URL}/${item.id}`).then(r => r.json());
-        // const i = await getItem(item.itemid);
-        // return i.tags; Note:
-        return item.tags;
+        return await getTags(item.id);
       }
     },
     User: {
       shareditems(user) {
         // return fetch(`${ITEMS_URL}/?itemowner=${user.id}`).then(r => r.json());
         return getSharedItems(user.id);
+      },
+      borroweditems(user) {
+        return getBorrowedItems(user.id);
       }
     },
-    // User: {
-    //   items: (user, args, context) => {
-    //     return context.loaders.UserOwnedItems.load(user.id);
-    //   }
-    // },
     Mutation: {
       addItem(root, { newItem: { title } }) {
         console.log({ title });
         return { title };
       }
-      // updateItem(root, { updatedItem: { title } }) {
-      //   console.log({ title });
-      //   return { title };
-      // }
     }
   };
 };

@@ -11,28 +11,65 @@ module.exports = async app => {
 
   await client.connect();
 
-  client.query("SELECT * FROM ITEMS", (err, res) => {
-    console.log(err, res);
-    // resolve(res.rows);
-    client.end();
-  });
-
   return {
-    getItems() {
-      // return new Promise((resolve, reject) => {
-      //   client.query("SELECT * FROM ITEMS", (err, res) => {
-      //     console.log(err, res);
-      //     resolve(res.rows);
-      //     client.end();
-      //   });
-      // });
+    getSharedItems(userid) {
+      return new Promise((resolve, reject) => {
+        client.query(
+          "SELECT * FROM items WHERE itemowner = $1",
+          [userid],
+          (err, data) => {
+            resolve(data.rows);
+          }
+        );
+      });
+    },
+    getBorrowedItems(userid) {
+      return new Promise((resolve, reject) => {
+        client.query(
+          "SELECT * FROM items WHERE borrower = $1",
+          [userid],
+          (err, data) => {
+            resolve(data.rows);
+          }
+        );
+      });
     },
 
-    getItem() {
-      return;
+    getItems() {
+      return new Promise((resolve, reject) => {
+        client.query("SELECT * FROM items", (err, res) => {
+          console.log(err, res);
+          resolve(res.rows);
+        });
+      });
+    },
+
+    getItem(id) {
+      return new Promise((resolve, reject) => {
+        client.query("SELECT * FROM items WHERE id = $1", [id], (err, res) => {
+          console.log(err, res);
+          resolve(res.rows);
+        });
+      });
     },
     getTags(itemid) {
-      return;
+      return new Promise((resolve, reject) => {
+        client.query(
+          `select * from tags
+           inner join itemtags on itemtags.tagid = tags.id 
+           where itemtags.itemsid = $1
+           `,
+          [itemid],
+          (err, data) => {
+            if (err) {
+              reject(err);
+              return;
+            }
+            console.log(data.rows);
+            resolve(data.rows);
+          }
+        );
+      });
     },
     createItem(id) {
       return;
