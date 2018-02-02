@@ -21,7 +21,6 @@ module.exports = app => {
           email: users[userid].email,
           bio: users[userid].bio,
           fullname: users[userid].fullname
-          // NOTE
         });
       });
       return userList;

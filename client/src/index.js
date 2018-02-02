@@ -18,6 +18,7 @@ import { ApolloProvider } from "react-apollo";
 import client from "./config/apolloclient";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import items from "./redux/modules/items";
+import Share from "./containers/Share";
 import { userLoading } from "./redux/modules/auth";
 
 import { firebaseAuth } from "./config/firebaseConfig";
@@ -53,6 +54,7 @@ const Boomtown = () => (
                 <PrivateRoute exact path="/items" component={Items} />
                 <PrivateRoute exact path="/" component={Items} />
                 <PrivateRoute exact path="/profile" component={Profile} />
+                <PrivateRoute exact path="/share" component={Share} />
                 {/* <Route exact path="/share" component=() /> */}
 
                 <Route exact path="*" component={NotFound} />
