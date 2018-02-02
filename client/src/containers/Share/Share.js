@@ -83,7 +83,7 @@ class Share extends React.Component {
               title="Bob Loblaw"
               subtitle={Moment().fromNow()}
               avatar={
-                <Gravatar className="photo" email="item.itemowner.email" />
+                <Gravatar className="photo" email="ncmoseley@gmail.com" />
               }
             />
 
@@ -96,7 +96,7 @@ class Share extends React.Component {
         <div className="rightside">
           <Stepper activeStep={stepIndex} orientation="vertical">
             <Step>
-              <StepLabel>Add an Image</StepLabel>
+              <StepLabel style={{ color: "#fff" }}>Add an Image</StepLabel>
               <StepContent>
                 <p>
                   We live in a visual culture. Upload an image of the item
@@ -107,7 +107,9 @@ class Share extends React.Component {
               </StepContent>
             </Step>
             <Step>
-              <StepLabel>Add a Title & Description</StepLabel>
+              <StepLabel style={{ color: "#fff" }}>
+                Add a Title & Description
+              </StepLabel>
               <StepContent>
                 <p>
                   Folks need to know what you're sharing. Give them a clue by
@@ -120,7 +122,9 @@ class Share extends React.Component {
               </StepContent>
             </Step>
             <Step>
-              <StepLabel>Categorize Your Item</StepLabel>
+              <StepLabel style={{ color: "#fff" }}>
+                Categorize Your Item
+              </StepLabel>
               <StepContent>
                 <p>
                   To share an item, you'll add it to our list of categories. You
@@ -131,7 +135,7 @@ class Share extends React.Component {
               </StepContent>
             </Step>
             <Step>
-              <StepLabel>Confirm Things!</StepLabel>
+              <StepLabel style={{ color: "#fff" }}>Confirm Things!</StepLabel>
               <StepContent>
                 <p>
                   Great! If you're happy with everything, tap the Confirm

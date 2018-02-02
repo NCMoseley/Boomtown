@@ -222,9 +222,9 @@ h1 {
 }
 .sharecontainer {
   display: flex;
+  color: #fff;
 }
 .leftside {
-  /* display: flex; */
   width: 40%;
   margin: 5%;
 }
@@ -271,5 +271,11 @@ h1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+  .leftside {
+    margin: 2%;
+  }
+  .rightside {
+    margin: 0;
   }
 }
