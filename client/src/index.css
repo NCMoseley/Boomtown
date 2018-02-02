@@ -227,6 +227,7 @@ h1 {
 .leftside {
   width: 40%;
   margin: 5%;
+  padding-left: 10%;
 }
 .rightside {
   display: flex;
@@ -239,6 +240,9 @@ h1 {
     width: 48%;
     min-width: 300px;
     margin: 1%;
+  }
+  .leftside {
+    padding-left: 0;
   }
 }
 @media only screen and (max-width: 625px) {
