@@ -53,6 +53,7 @@ const Login = ({
                 value={passwordInputValue}
                 label="Password"
                 type="password"
+                style={{}}
               />
             </div>
             <RaisedButton

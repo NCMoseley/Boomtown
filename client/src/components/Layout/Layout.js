@@ -4,11 +4,11 @@ import HeaderBar from "../HeaderBar";
 import Footer from "../../containers/Footer";
 import { connect } from "react-redux";
 import { userLoading } from "../../redux/modules/auth";
-// import { start } from "repl";
+import Gif from "../../images/cloud_load.gif";
 
 const Layout = ({ children, userLoading, authenticated }) =>
   userLoading ? (
-    <div>"Loading...."</div>
+    <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />
   ) : (
     <div className="appContentWrapper">
       <div className="appHeader">{authenticated && <HeaderBar />}</div>

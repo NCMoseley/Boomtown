@@ -3,6 +3,7 @@ import Items from "./Items";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import PropTypes from "prop-types";
+import Gif from "../../images/cloud_load.gif";
 
 class ItemsContainer extends Component {
   propTypes = {
@@ -11,7 +12,8 @@ class ItemsContainer extends Component {
   };
   render() {
     const { loading, items, error } = this.props.data;
-    if (loading) return <p>Loading....</p>;
+    if (loading)
+      return <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />;
     else if (error) {
       console.log(error);
       return <p>error</p>;

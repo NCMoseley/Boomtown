@@ -6,7 +6,8 @@ module.exports = ({
     getItems,
     getTags,
     getSharedItems,
-    getBorrowedItems
+    getBorrowedItems,
+    createItem
   },
   firebaseResource: { getUser, getUsers }
 }) => {
@@ -57,9 +58,9 @@ module.exports = ({
       }
     },
     Mutation: {
-      addItem(root, { newItem: { title } }) {
-        console.log({ title });
-        return { title };
+      createNewItem(root, { newItem }) {
+        console.log(newItem);
+        return createItem(newItem);
       }
     }
   };
