@@ -4,6 +4,7 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import PropTypes from "prop-types";
 import Gif from "../../images/cloud_load.gif";
+import { firebaseAuth, firebaseApp } from "../../config/firebaseConfig";
 
 class ItemsContainer extends Component {
   propTypes = {

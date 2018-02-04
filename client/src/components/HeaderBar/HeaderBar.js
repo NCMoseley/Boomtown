@@ -3,15 +3,16 @@ import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import SelectField from "material-ui/SelectField";
+import { setFilterValue } from "../../redux/modules/filter";
 import FontIcon from "material-ui/FontIcon";
 import MenuItem from "material-ui/MenuItem";
 import RaisedButton from "material-ui/RaisedButton";
 import logo from "../../images/boomtown-logo.svg";
-import { setFilterValue } from "../../redux/modules/filter";
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from "material-ui/Toolbar";
 import Paper from "material-ui/Paper";
 import PropTypes from "prop-types";
 import { firebaseAuth } from "../../config/firebaseConfig";
+import { authId } from "../../redux/modules/auth";
 
 class ToolbarExamplesSimple extends React.Component {
   constructor(props) {
@@ -26,8 +27,6 @@ class ToolbarExamplesSimple extends React.Component {
   };
 
   render() {
-    console.log(firebaseAuth);
-
     return (
       <Paper zDepth={3}>
         <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
@@ -66,7 +65,7 @@ class ToolbarExamplesSimple extends React.Component {
           <ToolbarGroup className="buttonbox">
             <FontIcon className="muidocs-icon-custom-sort" />
             <ToolbarSeparator />
-            <Link to={"/profile/5TweBTNVW7TwGRMvSRRcWSFN6jJ3"}>
+            <Link to={`/profile/${this.props.user}`}>
               <RaisedButton label="My Profile" primary={true} />
             </Link>
             <ToolbarSeparator />
@@ -84,7 +83,8 @@ class ToolbarExamplesSimple extends React.Component {
 const mapStateToProps = state => {
   return {
     filters: state.filter.filters,
-    selectedFilters: state.filter.selectedFilters
+    selectedFilters: state.filter.selectedFilters,
+    user: state.auth.authId
   };
 };
 

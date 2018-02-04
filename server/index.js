@@ -29,7 +29,14 @@ function start(postgresResource) {
   app.use("*", cors());
 
   // Where we will send all of our GraphQL requests
-  app.use("/graphql", bodyParser.json(), graphqlExpress({ schema }));
+  app.use(
+    "/graphql",
+    bodyParser.json(),
+    graphqlExpress({
+      schema
+      // context: { loaders: initLoaders({ postgresResource, firebaseResource }) }
+    })
+  );
 
   // A route for accessing the GraphiQL tool
   app.use(
@@ -44,10 +51,3 @@ function start(postgresResource) {
     )
   );
 }
-// service firebase.storage {
-//   match /b/{bucket}/o {
-//     match /{allPaths=**} {
-//       allow read, write: if request.auth != null;
-//     }
-//   }
-// }

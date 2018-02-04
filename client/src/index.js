@@ -19,10 +19,12 @@ import client from "./config/apolloclient";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import items from "./redux/modules/items";
 import Share from "./containers/Share";
-import { userLoading } from "./redux/modules/auth";
-
+import {
+  userLoading,
+  updateAuthState,
+  updateAuthId
+} from "./redux/modules/auth";
 import { firebaseAuth } from "./config/firebaseConfig";
-import { updateAuthState } from "./redux/modules/auth";
 
 let gotProfile = false;
 store.subscribe(() => {
@@ -37,6 +39,7 @@ firebaseAuth.onAuthStateChanged(user => {
   console.log("checking for user....");
   if (user) {
     store.dispatch(updateAuthState(user));
+    store.dispatch(updateAuthId(firebaseAuth.currentUser.uid));
   } else {
     store.dispatch(updateAuthState(false));
   }
@@ -48,9 +51,11 @@ const Boomtown = () => (
       <ApolloProvider client={client}>
         <Router>
           <div>
-            <Route exact path="/login" component={Login} />
+            {/* <Route exact path="/login" component={Login} /> */}
             <Layout>
               <Switch>
+                {/* <PrivateRoute exact path="/items" component={Items} /> */}
+                <Route exact path="/login" component={Login} />
                 <PrivateRoute exact path="/items" component={Items} />
                 <PrivateRoute exact path="/" component={Items} />
                 <PrivateRoute
@@ -59,7 +64,6 @@ const Boomtown = () => (
                   component={Profile}
                 />
                 <PrivateRoute exact path="/share" component={Share} />
-                {/* <Route exact path="/share" component=() /> */}
 
                 <Route exact path="*" component={NotFound} />
               </Switch>
