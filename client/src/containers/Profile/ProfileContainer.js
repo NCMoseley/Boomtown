@@ -4,29 +4,65 @@ import Profile from "./Profile";
 import { connect } from "react-redux";
 import { fetchItemsAndUser } from "../../redux/modules/profile";
 import Gif from "../../images/cloud_load.gif";
+import { graphql } from "react-apollo";
+import gql from "graphql-tag";
 
 class ProfileContainer extends Component {
-  static propTypes = {};
-
-  componentDidMount() {
-    this.props.dispatch(fetchItemsAndUser(this.props.match.params.userid));
-  }
+  propTypes = {
+    loading: PropTypes.bool,
+    user: PropTypes.array
+  };
   render() {
-    if (this.props.isLoading)
-      return <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />;
-
-    return <Profile items={this.props.items} />;
+    const { loading, user, error } = this.props.data;
+    if (loading)
+      return (
+        <img
+          alt={"Loading-gif"}
+          style={{ width: "100%", filter: "brightness(150%)" }}
+          src={Gif}
+        />
+      );
+    else if (error) {
+      console.log(error);
+      return <p>error</p>;
+    } else return <Profile items={user.shareditems} user={user} />;
   }
 }
 
-ProfileContainer.propTypes = {
-  items: PropTypes.array.isRequired
-};
+const fetchUser = gql`
+  query getUser($id: ID) {
+    user(id: $id) {
+      id
+      email
+      fullname
+      bio
 
-const mapStateToProps = state => ({
-  isLoading: state.profile.isLoading,
-  items: state.profile.items,
-  error: state.profile.error
-});
+      shareditems {
+        id
+        title
+        created
+        itemowner {
+          id
+          email
+          fullname
+        }
+        borrower {
+          id
+          fullname
+        }
+        imageurl
+        description
+        available
+        tags {
+          id
+          title
+        }
+      }
+    }
+  }
+`;
+// Note:  shareditems,  borroweditems was removed
 
-export default connect(mapStateToProps)(ProfileContainer);
+export default graphql(fetchUser, {
+  options: ({ match }) => ({ variables: { id: match.params.userid } })
+})(ProfileContainer);

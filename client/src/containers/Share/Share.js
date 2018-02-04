@@ -8,6 +8,7 @@ import Gravatar from "react-gravatar";
 // import Material UI components
 import { Step, Stepper, StepLabel, StepContent } from "material-ui/Stepper";
 import RaisedButton from "material-ui/RaisedButton";
+import SelectField from "material-ui/SelectField";
 import FlatButton from "material-ui/FlatButton";
 import {
   Card,
@@ -17,9 +18,21 @@ import {
   CardTitle,
   CardText
 } from "material-ui/Card";
-import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
+// import { connect } from "react-redux";
+// import PropTypes from "prop-types";
+// import { gql, graphql } from "react-apollo";
+// import { Redirect } from "react-router-dom";
+// import { FirebaseStorage, FirebaseAuth } from "../../config/firebase";
+// import {
+//   updateStepIndex,
+//   setItemImageUrl,
+//   completeSignupForm,
+//   resetShareForm
+// } from "../../redux/modules/share";
+
+// import Share from "./Share";
 
 class Share extends React.Component {
   state = {
@@ -41,6 +54,26 @@ class Share extends React.Component {
       this.setState({ stepIndex: stepIndex - 1 });
     }
   };
+
+  // selectImage = fileInput => {
+  //   this.fileInput = this.fileInput || fileInput;
+  //   this.fileInput.click();
+  // };
+
+  // handleImageUpload = () => {
+  //   const firebaseStorage = FirebaseStorage.ref();
+  //   const userId = FirebaseAuth.currentUser.uid;
+  //   const fileName = this.fileInput.files[0].name;
+
+  //   // updates the store with the new image
+  //   firebaseStorage
+  //     .child(`images/${userId}/${fileName}`)
+  //     .put(this.fileInput.files[0])
+  //     .then(result => {
+  //       this.props.dispatch(setItemImageUrl(result.metadata.downloadURLs[0]));
+  //       this.handleNext();
+  //     });
+  // };
 
   renderStepActions(step) {
     const { stepIndex } = this.state;

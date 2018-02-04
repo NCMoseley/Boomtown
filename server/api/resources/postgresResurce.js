@@ -49,7 +49,6 @@ module.exports = async app => {
     getItem(id) {
       return new Promise((resolve, reject) => {
         client.query("SELECT * FROM items WHERE id = $1", [id], (err, res) => {
-          console.log(err, res);
           resolve(res.rows);
         });
       });

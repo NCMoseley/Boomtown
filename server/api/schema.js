@@ -29,7 +29,7 @@ module.exports = `
 
   input TagInput {
     id: ID
-   
+    title: String
   }
 
   input AddItemInput {

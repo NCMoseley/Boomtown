@@ -4,25 +4,25 @@ import PropTypes from "prop-types";
 import Gravatar from "react-gravatar";
 import Paper from "material-ui/Paper";
 import Masonry from "react-masonry-component";
+import items from "../../redux/modules/items";
+import gql from "graphql-tag";
 
 const masonryOptions = {
   transitionDuration: 1000
 };
+
+// Note
 
 const Profile = ({ items, user }) => (
   <div className="profile-container">
     <div className="profile-header">
       <Paper className={"profile-card"} zDepth={3}>
         <div className={"profile-title"}>
-          <h1>{items[0] && items[0].itemowner.fullname}</h1>
-          <p>{items[0] && items[0].itemowner.bio}</p>
+          <h1>{user.fullname}</h1>
+          <p>{user.bio}</p>
         </div>
 
-        <Gravatar
-          className={"gravatar"}
-          size={180}
-          email={items[0] && items[0].itemowner.email}
-        />
+        <Gravatar className={"gravatar"} size={180} email={user.email} />
       </Paper>
     </div>
 

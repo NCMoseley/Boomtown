@@ -5,10 +5,15 @@ import Footer from "../../containers/Footer";
 import { connect } from "react-redux";
 import { userLoading } from "../../redux/modules/auth";
 import Gif from "../../images/cloud_load.gif";
+import { withRouter } from "react-router";
 
 const Layout = ({ children, userLoading, authenticated }) =>
   userLoading ? (
-    <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />
+    <img
+      alt={"Loading-gif"}
+      style={{ width: "100%", filter: "brightness(150%)" }}
+      src={Gif}
+    />
   ) : (
     <div className="appContentWrapper">
       <div className="appHeader">{authenticated && <HeaderBar />}</div>
@@ -30,4 +35,4 @@ const mapStateToProps = state => ({
   authenticated: state.auth.authenticated
 });
 
-export default connect(mapStateToProps)(Layout);
+export default withRouter(connect(mapStateToProps)(Layout));

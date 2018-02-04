@@ -13,7 +13,13 @@ class ItemsContainer extends Component {
   render() {
     const { loading, items, error } = this.props.data;
     if (loading)
-      return <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />;
+      return (
+        <img
+          alt={"Loading-gif"}
+          style={{ width: "100%", filter: "brightness(150%)" }}
+          src={Gif}
+        />
+      );
     else if (error) {
       console.log(error);
       return <p>error</p>;
@@ -46,32 +52,5 @@ const fetchItems = gql`
     }
   }
 `;
-
-// Colins VV NOTE
-// const fetchItems = gql`
-//   query {
-//     items {
-//       id
-//       title
-//       itemowner {
-//         id
-//         email
-//         fullname
-//       }
-//       borrower {
-//         id
-//         fullname
-//       }
-//       created
-//       imageurl
-//       description
-//       available
-//       tags {
-//         id
-//         title
-//       }
-//     }
-//   }
-// `;
 
 export default graphql(fetchItems)(ItemsContainer);

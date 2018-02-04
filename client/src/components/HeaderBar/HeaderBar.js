@@ -10,6 +10,9 @@ import logo from "../../images/boomtown-logo.svg";
 import { setFilterValue } from "../../redux/modules/filter";
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from "material-ui/Toolbar";
 import Paper from "material-ui/Paper";
+import { firebaseAuth, firebaseApp } from "../../config/firebaseConfig";
+// console.log(firebaseAuth);
+// const user = firebaseAuth.currentUser.uid;
 
 class ToolbarExamplesSimple extends React.Component {
   constructor(props) {
@@ -24,8 +27,6 @@ class ToolbarExamplesSimple extends React.Component {
   };
 
   render() {
-    // console.log(this.props.filters.map(filter => filter.title));
-    // console.log(this.props);
     return (
       <Paper zDepth={3}>
         <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
@@ -64,7 +65,7 @@ class ToolbarExamplesSimple extends React.Component {
           <ToolbarGroup className="buttonbox">
             <FontIcon className="muidocs-icon-custom-sort" />
             <ToolbarSeparator />
-            <Link to="/profile:userid">
+            <Link to={`/profile/${firebaseAuth}`}>
               <RaisedButton label="My Profile" primary={true} />
             </Link>
             <ToolbarSeparator />
@@ -77,6 +78,7 @@ class ToolbarExamplesSimple extends React.Component {
     );
   }
 }
+// note: ask about profile link syntax
 
 const mapStateToProps = state => {
   return {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { firebaseAuth } from "../../config/firebaseConfig";
-
 import Login from "./Login";
 
 class LoginContainer extends Component {
@@ -33,7 +32,7 @@ class LoginContainer extends Component {
         )
         .then(args => {
           console.log("Arrrrr", args);
-          this.props.history.push("/profile/");
+          this.props.history.push("/items");
         })
         .catch(error => {
           console.log("Error", error);

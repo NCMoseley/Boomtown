@@ -14,25 +14,20 @@ module.exports = ({
   return {
     Query: {
       items() {
-        // return fetch(ITEMS_URL).then(r => r.json());
         return getItems();
       },
       users() {
-        // return fetch(USERS_URL).then(r => r.json());
         return getUsers();
       },
       user(root, { id }) {
-        // return fetch(`${USERS_URL}/${id}`).then(r => r.json());
         return getUser(id);
       },
       item(root, { id }) {
-        // return fetch(`${ITEMS_URL}/${id}`).then(r => r.json());
         return getItem(id);
       }
     },
     Item: {
       itemowner(item) {
-        // return fetch(`${USERS_URL}/${item.itemowner}`).then(r => r.json());
         return getUser(item.itemowner);
       },
       borrower(item) {
@@ -44,13 +39,11 @@ module.exports = ({
         }
       },
       async tags(item) {
-        // const i = await fetch(`${ITEMS_URL}/${item.id}`).then(r => r.json());
         return await getTags(item.id);
       }
     },
     User: {
       shareditems(user) {
-        // return fetch(`${ITEMS_URL}/?itemowner=${user.id}`).then(r => r.json());
         return getSharedItems(user.id);
       },
       borroweditems(user) {
@@ -65,4 +58,3 @@ module.exports = ({
     }
   };
 };
-// module.exports = resolveFunctions;
