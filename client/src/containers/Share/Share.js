@@ -224,8 +224,8 @@ const mapStateToProps = state => {
   return {
     filters: state.filter.filters,
     selectedFilters: state.filter.selectedFilters,
-    user: state.auth.authId,
-    email: state.item.itemowner.email
+    user: state.auth.authId
+    // email: state.item.itemowner.email
   };
 };
 

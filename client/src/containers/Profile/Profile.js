@@ -20,6 +20,8 @@ const Profile = ({ items, user }) => (
         <div className={"profile-title"}>
           <h1>{user.fullname}</h1>
           <p>{user.bio}</p>
+          {/* <p>{user.shareditems}</p> */}
+          {/* <p>{user.borroweditems}</p> */}
         </div>
 
         <Gravatar className={"gravatar"} size={180} email={user.email} />

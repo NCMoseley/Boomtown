@@ -1,11 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import RaisedButton from "material-ui/RaisedButton";
 import Paper from "material-ui/Paper";
-
 import ValidatedTextField from "../../components/ValidatedTextField";
-
 import "./styles.css";
 import logo from "../../images/boomtown-logo.svg";
 import bottomLeft from "../../images/home-bl.svg";
@@ -37,7 +34,7 @@ const Login = ({
               e.preventDefault();
               login();
             }}
-            autoComplete="off"
+            autoComplete="on"
           >
             <div>
               <ValidatedTextField
@@ -62,7 +59,7 @@ const Login = ({
               fullWidth
               type="submit"
             >
-              Snakes
+              Press Twice!
             </RaisedButton>
           </form>
         </div>

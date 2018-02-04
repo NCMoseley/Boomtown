@@ -57,11 +57,14 @@ const fetchUser = gql`
           id
           title
         }
+        borrower {
+          id
+        }
       }
     }
   }
 `;
-// Note:  shareditems,  borroweditems was removed
+// Note:
 
 export default graphql(fetchUser, {
   options: ({ match }) => ({ variables: { id: match.params.userid } })

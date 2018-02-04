@@ -13,6 +13,12 @@ import Paper from "material-ui/Paper";
 import PropTypes from "prop-types";
 import { firebaseAuth } from "../../config/firebaseConfig";
 import { authId } from "../../redux/modules/auth";
+import FloatingActionButton from "material-ui/FloatingActionButton";
+import ContentAdd from "material-ui/svg-icons/content/add";
+
+const style = {
+  marginRight: 20
+};
 
 class ToolbarExamplesSimple extends React.Component {
   constructor(props) {
@@ -26,6 +32,12 @@ class ToolbarExamplesSimple extends React.Component {
     this.props.dispatch(setFilterValue(selected));
   };
 
+  handleSignOut() {
+    if (firebaseAuth.currentUser) {
+      firebaseAuth.signOut();
+      return true;
+    }
+  }
   render() {
     return (
       <Paper zDepth={3}>
@@ -35,32 +47,26 @@ class ToolbarExamplesSimple extends React.Component {
             <a href="/">
               <img alt="HeaderLogo" className="headerLogo" src={logo} />
             </a>
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <SelectField
-                  className="SelectField"
-                  multiple
-                  autoWidth={true}
-                  floatingLabelText="Filter by Tag"
-                  onChange={this.handleChange}
-                  value={this.props.selectedFilters}
-                >
-                  {this.props.filters.map(tag => (
-                    <MenuItem
-                      insetChildren
-                      key={tag.title}
-                      checked={
-                        !!this.props.selectedFilters.find(f => f === tag.title)
-                      }
-                      value={tag.title}
-                      primaryText={tag.title}
-                    />
-                  ))}
-                </SelectField>
-              )}
-            />
+            <SelectField
+              className="SelectField"
+              multiple
+              autoWidth={true}
+              floatingLabelText="Filter by Tag"
+              onChange={this.handleChange}
+              value={this.props.selectedFilters}
+            >
+              {this.props.filters.map(tag => (
+                <MenuItem
+                  insetChildren
+                  key={tag.title}
+                  checked={
+                    !!this.props.selectedFilters.find(f => f === tag.title)
+                  }
+                  value={tag.title}
+                  primaryText={tag.title}
+                />
+              ))}
+            </SelectField>
           </ToolbarGroup>
           <ToolbarGroup className="buttonbox">
             <FontIcon className="muidocs-icon-custom-sort" />
@@ -70,10 +76,23 @@ class ToolbarExamplesSimple extends React.Component {
             </Link>
             <ToolbarSeparator />
             <Link to="/login">
-              <RaisedButton label="Logout" secondary={true} />
+              <RaisedButton
+                label="Logout"
+                secondary={true}
+                onClick={this.handleSignOut}
+              />
             </Link>
           </ToolbarGroup>
         </Toolbar>
+        <Link to="/share">
+          <FloatingActionButton
+            secondary={true}
+            className="sharebutton"
+            style={style}
+          >
+            <ContentAdd />
+          </FloatingActionButton>
+        </Link>
       </Paper>
     );
   }
