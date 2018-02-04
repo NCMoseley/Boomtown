@@ -10,8 +10,7 @@ const config = {
   storageBucket: "boomtown-8cc79.appspot.com",
   messagingSenderId: "478312715806"
 };
-
 const firebaseApp = firebase.initializeApp(config);
 const firebaseAuth = firebaseApp.auth();
-console.log(firebaseAuth);
+
 export { firebaseApp, firebaseAuth };

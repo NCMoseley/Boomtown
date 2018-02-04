@@ -10,9 +10,8 @@ import logo from "../../images/boomtown-logo.svg";
 import { setFilterValue } from "../../redux/modules/filter";
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from "material-ui/Toolbar";
 import Paper from "material-ui/Paper";
-import { firebaseAuth, firebaseApp } from "../../config/firebaseConfig";
-// console.log(firebaseAuth);
-// const user = firebaseAuth.currentUser.uid;
+import PropTypes from "prop-types";
+import { firebaseAuth } from "../../config/firebaseConfig";
 
 class ToolbarExamplesSimple extends React.Component {
   constructor(props) {
@@ -27,6 +26,8 @@ class ToolbarExamplesSimple extends React.Component {
   };
 
   render() {
+    console.log(firebaseAuth);
+
     return (
       <Paper zDepth={3}>
         <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
@@ -65,7 +66,7 @@ class ToolbarExamplesSimple extends React.Component {
           <ToolbarGroup className="buttonbox">
             <FontIcon className="muidocs-icon-custom-sort" />
             <ToolbarSeparator />
-            <Link to={`/profile/${firebaseAuth}`}>
+            <Link to={"/profile/5TweBTNVW7TwGRMvSRRcWSFN6jJ3"}>
               <RaisedButton label="My Profile" primary={true} />
             </Link>
             <ToolbarSeparator />

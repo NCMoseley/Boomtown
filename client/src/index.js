@@ -27,7 +27,7 @@ import { updateAuthState } from "./redux/modules/auth";
 let gotProfile = false;
 store.subscribe(() => {
   const values = store.getState();
-  if (!values.authenticated === "LOADING_USER" && !gotProfile) {
+  if (values.authenticated !== "LOADING_USER" && !gotProfile) {
     gotProfile = true;
     store.dispatch(userLoading(false));
   }

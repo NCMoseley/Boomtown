@@ -24,7 +24,7 @@ class ProfileContainer extends Component {
       );
     else if (error) {
       console.log(error);
-      return <p>error</p>;
+      return <p>errorProfile</p>;
     } else return <Profile items={user.shareditems} user={user} />;
   }
 }
