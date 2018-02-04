@@ -4,9 +4,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import registerServiceWorker from "./registerServiceWorker";
 import { Provider, connect } from "react-redux";
 import store from "./redux/store";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import "./index.css";
 import muiTheme from "./config/theme";
 import Layout from "./components/Layout";
