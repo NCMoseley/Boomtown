@@ -30,7 +30,11 @@ import { Link } from "react-router-dom";
 class Share extends React.Component {
   state = {
     finished: false,
-    stepIndex: 0
+    stepIndex: 0,
+    newTitle: "Item Title",
+    newDescription: "Description",
+    newImageurl: "",
+    newTags: ""
   };
 
   handleChange = (event, index, selected) => {
@@ -52,12 +56,19 @@ class Share extends React.Component {
     }
   };
 
-  // Handlers for custom functionality
-  // https://time2hack.com/2017/10/upload-files-to-firebase-storage-with-javascript/
+  handleUpdateTitle = e => {
+    this.setState({ newTitle: e.target.value });
+  };
+
+  handleUpdateDescription = e => {
+    this.setState({ newDescription: e.target.value });
+  };
 
   handleSelectClick = () => document.getElementById("imageInput").click();
 
   handleImageUpload = input => {
+    const { newImageurl } = this.state;
+
     console.log(input.target.files[0].name);
     // create firebase storage reference
     const ref = firebase.storage().ref();
@@ -71,7 +82,7 @@ class Share extends React.Component {
     task
       .then(snapshot => {
         const url = snapshot.downloadURL;
-        console.log(url);
+        this.setState({ newImageurl: url });
       })
       .catch(error => {
         console.error(error);
@@ -105,14 +116,24 @@ class Share extends React.Component {
   }
 
   render() {
-    const { finished, stepIndex } = this.state;
+    const {
+      finished,
+      stepIndex,
+      newTitle,
+      newDescription,
+      newImageurl,
+      newTags
+    } = this.state;
 
     return (
       <div className="sharecontainer">
         <div className="leftside">
           <Card style={{}} className="card">
             <CardMedia className="card-media">
-              <img src={Placeholder} alt="placeholder for uploaded photo" />
+              <img
+                src={newImageurl ? newImageurl : Placeholder}
+                alt="placeholder for uploaded photo"
+              />
             </CardMedia>
             <Link to={`/profile/${firebaseAuth.currentUser}`}>
               <CardHeader
@@ -127,9 +148,9 @@ class Share extends React.Component {
                 }
               />
             </Link>
-            <CardTitle title="Item Title" />
+            <CardTitle title={newTitle} />
 
-            <CardText>Item description.</CardText>
+            <CardText>{newDescription}</CardText>
           </Card>
         </div>
 
@@ -168,9 +189,12 @@ class Share extends React.Component {
                   Folks need to know what you're sharing. Give them a clue by
                   adding a title & description.
                 </p>
-                <TextField hintText="Title" />
+                <TextField hintText="Title" onChange={this.handleUpdateTitle} />
                 <br />
-                <TextField hintText="Description" />
+                <TextField
+                  hintText="Description"
+                  onChange={this.handleUpdateDescription}
+                />
                 {this.renderStepActions(1)}
               </StepContent>
             </Step>
