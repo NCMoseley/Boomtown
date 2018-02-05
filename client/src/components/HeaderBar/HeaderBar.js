@@ -43,7 +43,7 @@ class ToolbarExamplesSimple extends React.Component {
       <Paper zDepth={3}>
         <Toolbar className="headerbar" style={{ backgroundColor: "#fff" }}>
           <ToolbarGroup firstChild={true}>
-            <ToolbarSeparator />
+            {/* <ToolbarSeparator /> */}
             <a href="/">
               <img alt="HeaderLogo" className="headerLogo" src={logo} />
             </a>

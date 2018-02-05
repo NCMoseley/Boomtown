@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import RaisedButton from "material-ui/RaisedButton";
 import Paper from "material-ui/Paper";
 import ValidatedTextField from "../../components/ValidatedTextField";
-import "./styles.css";
+// import "./styles.css";
 import logo from "../../images/boomtown-logo.svg";
 import bottomLeft from "../../images/home-bl.svg";
 import topRight from "../../images/home-tr.svg";

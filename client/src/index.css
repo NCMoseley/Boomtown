@@ -167,7 +167,45 @@ h1 {
   margin-top: 3.5%;
   width: 100%;
 }
+.login .bottomLeft {
+  bottom: 0;
+  left: 0;
+  margin-bottom: -10px;
+  overflow: hidden;
+  position: absolute;
+}
 
+.login .topRight {
+  animation: parallax-clouds 30s infinite alternate ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@keyframes parallax-clouds {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  50% {
+    transform: translate3d(350px, 0px, 0px);
+  }
+  100% {
+    transform: translate3d(-50px, 0px, 0px);
+  }
+}
+.appContentWrapper {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.appContent {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
+  flex: 1;
+}
 .cards {
   width: 30.3%;
   min-width: 300px;
@@ -187,7 +225,7 @@ h1 {
 }
 .SelectField {
   margin-bottom: 30px !important;
-  margin-left: 20px !important;
+  margin-left: 40px !important;
   width: 240px !important;
 }
 .buttonbox {
@@ -239,6 +277,9 @@ h1 {
   left: 90%;
   top: 89%;
   z-index: 1000;
+}
+.headerLogo {
+  margin: 0 50%;
 }
 
 @media only screen and (max-width: 990px) {
