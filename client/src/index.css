@@ -320,7 +320,7 @@ h1 {
 }
 .sharebutton {
   position: fixed;
-  left: 90%;
+  right: 5px;
   top: 89%;
   z-index: 1000;
 }
