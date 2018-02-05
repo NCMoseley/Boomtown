@@ -11,7 +11,7 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 
 class ShareContainer extends Component {
-  propTypes = {
+  static propTypes = {
     loading: PropTypes.bool,
     user: PropTypes.array
   };

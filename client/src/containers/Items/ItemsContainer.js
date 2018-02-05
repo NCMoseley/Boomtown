@@ -8,7 +8,7 @@ import Gif from "../../images/cloud_load.gif";
 import { connect } from "react-redux";
 
 class ItemsContainer extends Component {
-  propTypes = {
+  static propTypes = {
     loading: PropTypes.bool,
     items: PropTypes.array
   };

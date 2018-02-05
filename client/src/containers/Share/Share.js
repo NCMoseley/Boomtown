@@ -69,7 +69,7 @@ class Share extends React.Component {
   handleSelectClick = () => document.getElementById("imageInput").click();
 
   handleImageUpload = input => {
-    const { newImageurl } = this.state;
+    // const { newImageurl } = this.state;
 
     console.log(input.target.files[0].name);
     // create firebase storage reference
@@ -119,12 +119,12 @@ class Share extends React.Component {
 
   render() {
     const {
-      finished,
+      // finished,
       stepIndex,
       newTitle,
       newDescription,
-      newImageurl,
-      newTags
+      newImageurl
+      // newTags
     } = this.state;
 
     return (
@@ -134,7 +134,7 @@ class Share extends React.Component {
             <CardMedia className="card-media">
               <img
                 src={newImageurl ? newImageurl : Placeholder}
-                alt="placeholder for uploaded photo"
+                alt="placeholder"
               />
             </CardMedia>
             <Link to={`/profile/${firebaseAuth.currentUser}`}>
