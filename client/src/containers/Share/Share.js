@@ -5,8 +5,6 @@ import Moment from "moment";
 import Gravatar from "react-gravatar";
 import { connect } from "react-redux";
 import Items from "../Items/Items";
-
-// import Material UI components
 import { Step, Stepper, StepLabel, StepContent } from "material-ui/Stepper";
 import RaisedButton from "material-ui/RaisedButton";
 import SelectField from "material-ui/SelectField";
@@ -24,6 +22,10 @@ import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
 import firebase from "firebase";
 import Filter from "../../redux/modules/filter";
+import { firebaseAuth } from "../../config/firebaseConfig";
+import { graphql } from "graphql";
+import gql from "graphql-tag";
+import { Link } from "react-router-dom";
 
 class Share extends React.Component {
   state = {
@@ -70,7 +72,6 @@ class Share extends React.Component {
       .then(snapshot => {
         const url = snapshot.downloadURL;
         console.log(url);
-        // document.querySelector("#someImageTagID").src = url;
       })
       .catch(error => {
         console.error(error);
@@ -104,8 +105,6 @@ class Share extends React.Component {
   }
 
   render() {
-    console.log(this.props.selectedFilters);
-    console.log(this.props.email);
     const { finished, stepIndex } = this.state;
 
     return (
@@ -115,15 +114,19 @@ class Share extends React.Component {
             <CardMedia className="card-media">
               <img src={Placeholder} alt="placeholder for uploaded photo" />
             </CardMedia>
-
-            <CardHeader
-              title="Bob Loblaw"
-              subtitle={Moment().fromNow()}
-              avatar={
-                <Gravatar className="photo" email={this.props.itemowner} />
-              }
-            />
-
+            <Link to={`/profile/${firebaseAuth.currentUser}`}>
+              <CardHeader
+                subtitle={Moment().fromNow()}
+                avatar={
+                  <Gravatar
+                    className="photo"
+                    email={
+                      firebaseAuth.currentUser && firebaseAuth.currentUser.email
+                    }
+                  />
+                }
+              />
+            </Link>
             <CardTitle title="Item Title" />
 
             <CardText>Item description.</CardText>

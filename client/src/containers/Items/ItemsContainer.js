@@ -24,7 +24,7 @@ class ItemsContainer extends Component {
         />
       );
     else if (error) {
-      console.log(error);
+      console.log("Items Container", error);
       return <p>error</p>;
     } else if (items)
       filtered = items.filter(item => {
