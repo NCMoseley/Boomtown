@@ -30,7 +30,7 @@ const ItemCard = ({ item }) => (
       <Link to={"/profile/" + item.itemowner.id}>
         <CardHeader
           title={item.itemowner.fullname}
-          subtitle={moment([item.created]).fromNow()}
+          subtitle={moment(item.created, "ddd MMM DD YYYY").fromNow()}
           avatar={<Gravatar email={item.itemowner.email} />}
         />
       </Link>
@@ -41,7 +41,7 @@ const ItemCard = ({ item }) => (
       <CardText>{item.description}</CardText>
       <CardActions>
         <Link to={"/" + item.itemowner.id}>
-          {item.borrower && <RaisedButton label="Borrow" secondary={true} />}
+          {!item.borrower && <RaisedButton label="Borrow" secondary={true} />}
         </Link>
       </CardActions>
     </Card>
