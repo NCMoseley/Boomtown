@@ -23,6 +23,7 @@ import {
   updateAuthId
 } from "./redux/modules/auth";
 import { firebaseAuth } from "./config/firebaseConfig";
+import LoginContainer from "./containers/Login/LoginContainer";
 
 let gotProfile = false;
 store.subscribe(() => {
@@ -49,13 +50,10 @@ const Boomtown = () => (
       <ApolloProvider client={client}>
         <Router>
           <div>
-            {/* <Route exact path="/login" component={Login} /> */}
             <Layout>
               <Switch>
-                {/* <PrivateRoute exact path="/items" component={Items} /> */}
-                <Route exact path="/login" component={Login} />
+                <Route exact path="/" component={LoginContainer} />
                 <PrivateRoute exact path="/items" component={Items} />
-                <PrivateRoute exact path="/" component={Items} />
                 <PrivateRoute
                   exact
                   path="/profile/:userid"

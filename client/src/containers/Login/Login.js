@@ -30,6 +30,7 @@ const Login = ({
       <Paper zDepth={5}>
         <div className="formContainer">
           <form
+            className="form"
             onSubmit={e => {
               e.preventDefault();
               login();
@@ -59,7 +60,7 @@ const Login = ({
               fullWidth
               type="submit"
             >
-              Press Twice!
+              Login
             </RaisedButton>
           </form>
         </div>

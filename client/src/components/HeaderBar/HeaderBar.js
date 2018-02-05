@@ -76,7 +76,7 @@ class ToolbarExamplesSimple extends React.Component {
               <RaisedButton label="My Profile" primary={true} />
             </Link>
             <ToolbarSeparator />
-            <Link to="/login">
+            <Link to="/">
               <RaisedButton
                 label="Logout"
                 secondary={true}

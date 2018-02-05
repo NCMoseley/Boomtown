@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { firebaseAuth } from "../../config/firebaseConfig";
 import Login from "./Login";
+import { Redirect, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 class LoginContainer extends Component {
   static propTypes = {};
@@ -42,11 +44,10 @@ class LoginContainer extends Component {
   };
 
   render() {
-    // const { from } = this.props.location.state || {
-    //   from: { pathname: "/" }
-    // };
-    // return !this.props.authenticated ? (
-    return (
+    const { from } = this.props.location.state || {
+      from: { pathname: "/items" }
+    };
+    return !this.props.authenticated ? (
       <Login
         login={this.login}
         handleEmail={this.handleEmail}
@@ -55,8 +56,15 @@ class LoginContainer extends Component {
         passwordInputValue={this.state.passwordInputValue}
         loginError={this.state.loginError}
       />
+    ) : (
+      <Redirect to={from} />
     );
   }
 }
 
-export default LoginContainer;
+const mapStateToProps = state => ({
+  authenticated: state.auth.authenticated,
+  userLoading: state.auth.userLoading
+});
+
+export default connect(mapStateToProps)(LoginContainer);

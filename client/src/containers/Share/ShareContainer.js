@@ -30,7 +30,7 @@ class ShareContainer extends Component {
       return <p>Error in ShareContainer</p>;
     } else
       return (
-        <Share share={user.shareditems} user={user} />
+        <Share share={this.share} user={user} />
         // <Share share={this.share} />
       );
   }
@@ -71,26 +71,7 @@ const fetchUser = gql`
     }
   }
 `;
-// Note:
 
 export default graphql(fetchUser, {
   options: ({ match }) => ({ variables: { id: match.params.userid } })
 })(ShareContainer);
-
-// export default class ShareContainer extends Component {
-//   render() {
-//     // var userId = firebaseAuth.currentUser.uid;
-
-//     // return firebase
-//     //   .database()
-//     //   .ref("/users/" + userId)
-//     //   .once("value")
-//     //   .then(function(snapshot) {
-//     //     var username =
-//     //       (snapshot.val() && snapshot.val().username) || "Anonymous";
-//     //     console.log(userId);
-//     //     console.log(firebaseAuth.currentUser.uid);
-//     //   });
-//     return <Share share={this.share} />;
-//   }
-// }

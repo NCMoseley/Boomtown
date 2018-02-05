@@ -34,10 +34,14 @@ class Share extends React.Component {
     newTitle: "Item Title",
     newDescription: "Description",
     newImageurl: "",
-    newTags: ""
+    newTags: "",
+    newTimestamp: ""
+    // userId: {firebaseAuth.currentUser.uid}
   };
 
   handleChange = (event, index, selected) => {
+    console.log(this.props.selectedFilters);
+
     this.props.dispatch(setFilterValue(selected));
   };
 
@@ -220,7 +224,9 @@ class Share extends React.Component {
                       insetChildren
                       key={tag.title}
                       checked={
-                        !!this.props.selectedFilters.find(f => f === tag.title)
+                        this.props.selectedFilters.find(f => f === tag.title)
+                          ? true
+                          : false
                       }
                       value={tag.title}
                       primaryText={tag.title}
@@ -252,7 +258,6 @@ const mapStateToProps = state => {
     filters: state.filter.filters,
     selectedFilters: state.filter.selectedFilters,
     user: state.auth.authId
-    // email: state.item.itemowner.email
   };
 };
 
