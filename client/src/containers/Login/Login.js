@@ -42,7 +42,7 @@ const Login = ({
                 handleChange={handleEmail}
                 value={emailInputValue}
                 label="Email"
-                // type="email"
+                type="email"
               />
             </div>
             <div>
