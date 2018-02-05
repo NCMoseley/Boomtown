@@ -4,6 +4,8 @@
 
 ## Installation
 
+Insanity: doing the same thing over and over again and expecting different results. -Albert Einstein
+
 Download the repo, then run:
 
 ```bash
