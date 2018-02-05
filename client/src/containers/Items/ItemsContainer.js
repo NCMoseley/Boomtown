@@ -4,7 +4,7 @@ import { graphql, compose } from "react-apollo";
 import gql from "graphql-tag";
 import PropTypes from "prop-types";
 import Gif from "../../images/cloud_load.gif";
-import { firebaseAuth, firebaseApp } from "../../config/firebaseConfig";
+// import { firebaseAuth, firebaseApp } from "../../config/firebaseConfig";
 import { connect } from "react-redux";
 
 class ItemsContainer extends Component {

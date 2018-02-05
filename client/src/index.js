@@ -2,20 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import registerServiceWorker from "./registerServiceWorker";
-import { Provider, connect } from "react-redux";
+import { Provider } from "react-redux";
 import store from "./redux/store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import muiTheme from "./config/theme";
 import Layout from "./components/Layout";
-import Login from "./containers/Login";
+// import Login from "./containers/Login";
 import Items from "./containers/Items";
 import Profile from "./containers/Profile";
 import NotFound from "./containers/NotFound";
 import { ApolloProvider } from "react-apollo";
 import client from "./config/apolloclient";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import items from "./redux/modules/items";
+// import items from "./redux/modules/items";
 import Share from "./containers/Share";
 import {
   userLoading,
@@ -35,7 +35,6 @@ store.subscribe(() => {
 });
 
 firebaseAuth.onAuthStateChanged(user => {
-  console.log("checking for user....");
   if (user) {
     store.dispatch(updateAuthState(user));
     store.dispatch(updateAuthId(firebaseAuth.currentUser.uid));

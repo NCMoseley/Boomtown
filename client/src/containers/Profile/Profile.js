@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import Gravatar from "react-gravatar";
 import Paper from "material-ui/Paper";
 import Masonry from "react-masonry-component";
-import items from "../../redux/modules/items";
-import gql from "graphql-tag";
+// import items from "../../redux/modules/items";
+// import gql from "graphql-tag";
 
 const masonryOptions = {
   transitionDuration: 1000

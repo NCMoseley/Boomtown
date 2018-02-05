@@ -25,8 +25,6 @@ export default (
   },
   action
 ) => {
-  // console.log(action);
-  // console.log(state);
   switch (action.type) {
     case SET_FILTER_VALUE: {
       return { ...state, selectedFilters: [...action.payload] };

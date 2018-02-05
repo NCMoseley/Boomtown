@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import HeaderBar from "../HeaderBar";
 import Footer from "../../containers/Footer";
 import { connect } from "react-redux";
-import { userLoading } from "../../redux/modules/auth";
+// import { userLoading } from "../../redux/modules/auth";
 import Gif from "../../images/cloud_load.gif";
 import { withRouter } from "react-router";
 

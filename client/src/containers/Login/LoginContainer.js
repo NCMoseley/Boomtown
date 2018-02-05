@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { firebaseAuth } from "../../config/firebaseConfig";
 import Login from "./Login";
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 class LoginContainer extends Component {

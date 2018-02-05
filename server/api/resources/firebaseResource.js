@@ -29,7 +29,6 @@ module.exports = app => {
     async getUser(userid) {
       let user = await db.ref(`users/${userid}`).once("value");
       user = user.val();
-      console.log(user);
       return {
         id: userid,
         ...user

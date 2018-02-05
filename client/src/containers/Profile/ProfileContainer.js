@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Profile from "./Profile";
-import { connect } from "react-redux";
-import { fetchItemsAndUser } from "../../redux/modules/profile";
+// import { connect } from "react-redux";
+// import { fetchItemsAndUser } from "../../redux/modules/profile";
 import Gif from "../../images/cloud_load.gif";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 
 class ProfileContainer extends Component {
-  propTypes = {
+  static propTypes = {
     loading: PropTypes.bool,
     user: PropTypes.array
   };

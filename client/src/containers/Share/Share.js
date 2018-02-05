@@ -1,10 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Placeholder from "../../images/item-placeholder.jpg";
 import Moment from "moment";
 import Gravatar from "react-gravatar";
 import { connect } from "react-redux";
-import Items from "../Items/Items";
+// import Items from "../Items/Items";
 import { Step, Stepper, StepLabel, StepContent } from "material-ui/Stepper";
 import RaisedButton from "material-ui/RaisedButton";
 import SelectField from "material-ui/SelectField";
@@ -12,7 +12,7 @@ import { setFilterValue } from "../../redux/modules/filter";
 import FlatButton from "material-ui/FlatButton";
 import {
   Card,
-  CardActions,
+  // CardActions,
   CardHeader,
   CardMedia,
   CardTitle,
@@ -21,10 +21,10 @@ import {
 import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
 import firebase from "firebase";
-import Filter from "../../redux/modules/filter";
+// import Filter from "../../redux/modules/filter";
 import { firebaseAuth } from "../../config/firebaseConfig";
-import { graphql } from "graphql";
-import gql from "graphql-tag";
+// import { graphql } from "graphql";
+// import gql from "graphql-tag";
 import { Link } from "react-router-dom";
 
 class Share extends React.Component {
@@ -40,8 +40,6 @@ class Share extends React.Component {
   };
 
   handleChange = (event, index, selected) => {
-    console.log(this.props.selectedFilters);
-
     this.props.dispatch(setFilterValue(selected));
   };
 

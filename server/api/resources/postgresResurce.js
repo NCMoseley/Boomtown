@@ -66,7 +66,6 @@ module.exports = async app => {
               reject(err);
               return;
             }
-            console.log(data.rows);
             resolve(data.rows);
           }
         );

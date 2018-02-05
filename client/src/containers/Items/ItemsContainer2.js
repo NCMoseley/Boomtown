@@ -16,9 +16,6 @@ class ItemsContainer extends Component {
   }
 
   render() {
-    // console.log(this.props.selectedFilters);
-    // console.log(this.props.filters.map(tag => tag.title));
-
     // Filter functions
     if (this.props.isLoading || this.props.items === undefined)
       return <img alt={"Loading-gif"} style={{ width: "100%" }} src={Gif} />;

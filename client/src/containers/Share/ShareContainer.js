@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Share from "./Share";
-import firebase from "firebase";
-import { firebaseAuth } from "../../config/firebaseConfig";
+// import firebase from "firebase";
+// import { firebaseAuth } from "../../config/firebaseConfig";
 import PropTypes from "prop-types";
-import Profile from "../Profile";
-import { connect } from "react-redux";
-import { fetchItemsAndUser } from "../../redux/modules/profile";
+// import Profile from "../Profile";
+// import { connect } from "react-redux";
+// import { fetchItemsAndUser } from "../../redux/modules/profile";
 import Gif from "../../images/cloud_load.gif";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
