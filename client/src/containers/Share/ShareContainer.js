@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import Gif from "../../images/cloud_load.gif";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
+import Mutate from "./Mutate";
 
 class ShareContainer extends Component {
   static propTypes = {
@@ -30,7 +31,7 @@ class ShareContainer extends Component {
       return <p>Error in ShareContainer</p>;
     } else
       return (
-        <Share share={this.share} user={user} />
+        <Mutate share={this.share} user={user} />
         // <Share share={this.share} />
       );
   }

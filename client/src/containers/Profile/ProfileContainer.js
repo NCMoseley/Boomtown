@@ -18,13 +18,16 @@ class ProfileContainer extends Component {
       return (
         <img
           alt={"Loading-gif"}
-          style={{ width: "100%", filter: "brightness(150%)" }}
+          style={{
+            width: "100%",
+            filter: "brightness(150%)"
+          }}
           src={Gif}
         />
       );
     else if (error) {
       console.log(error);
-      return <p>Error in ProfileContainer</p>;
+      return <p>Error in ProfileContainer </p>;
     } else return <Profile items={user.shareditems} user={user} />;
   }
 }
@@ -67,5 +70,9 @@ const fetchUser = gql`
 // Note:
 
 export default graphql(fetchUser, {
-  options: ({ match }) => ({ variables: { id: match.params.userid } })
+  options: ({ match }) => ({
+    variables: {
+      id: match.params.userid
+    }
+  })
 })(ProfileContainer);

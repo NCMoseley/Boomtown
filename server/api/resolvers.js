@@ -51,8 +51,10 @@ module.exports = ({
       }
     },
     Mutation: {
-      createNewItem(root, { newItem }) {
+      createNewItem(root, { newItem }, context) {
         console.log(newItem);
+        console.log(root);
+        console.log(context);
         return createItem(newItem);
       }
     }

@@ -34,13 +34,20 @@ class Share extends React.Component {
     newTitle: "Item Title",
     newDescription: "Description",
     newImageurl: "",
-    newTags: "",
+    newTags: [],
     newTimestamp: ""
     // userId: {firebaseAuth.currentUser.uid}
   };
 
   handleChange = (event, index, selected) => {
-    this.props.dispatch(setFilterValue(selected));
+    // this.props.dispatch(setFilterValue(selected));
+    const tags = selected.map(({ tagid, id, title }) => ({
+      id: tagid || id,
+      title: title
+    }));
+    this.setState({
+      newTags: tags
+    });
   };
 
   handleNext = () => {
@@ -91,6 +98,11 @@ class Share extends React.Component {
       });
   };
 
+  storeInDatabase = () => {
+    console.log(this.props);
+    this.props.submit(this.state);
+  };
+
   renderStepActions(step) {
     const { stepIndex } = this.state;
 
@@ -101,7 +113,7 @@ class Share extends React.Component {
           disableTouchRipple={true}
           disableFocusRipple={true}
           primary={true}
-          onClick={this.handleNext}
+          onClick={stepIndex === 3 ? this.storeInDatabase : this.handleNext}
           style={{ marginRight: 12 }}
         />
         {step > 0 && (
@@ -118,6 +130,7 @@ class Share extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     const {
       // finished,
       stepIndex,
@@ -215,18 +228,18 @@ class Share extends React.Component {
                   autoWidth={true}
                   floatingLabelText="Filter by Tag"
                   onChange={this.handleChange}
-                  value={this.props.selectedFilters}
+                  value={this.state.newTags}
                 >
                   {this.props.filters.map(tag => (
                     <MenuItem
                       insetChildren
                       key={tag.title}
                       checked={
-                        this.props.selectedFilters.find(f => f === tag.title)
+                        this.state.newTags.find(f => f === tag.title)
                           ? true
                           : false
                       }
-                      value={tag.title}
+                      value={tag}
                       primaryText={tag.title}
                     />
                   ))}
